@@ -38,7 +38,7 @@ jobs:
   ios:
     # HausKlar requires Xcode 26+. Pin the known-good 26.2 toolchain because
     # runner defaults can change independently of the source tree.
-    runs-on: macos-26
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - run: brew install xcodegen
