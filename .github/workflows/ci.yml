@@ -36,9 +36,11 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
       - run: ./scripts/public-release-audit.sh
   ios:
-    runs-on: macos-15
+    # HausKlar uses the Swift compiler and iOS SDK shipped with Xcode 26+.
+    runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
       - run: brew install xcodegen
       - run: cd ios/HausKlar && xcodegen
-      - run: cd ios/HausKlar && xcodebuild -project HausKlar.xcodeproj -scheme HausKlar -sdk iphonesimulator CODE_SIGNING_ALLOWED=NO build
+      - run: xcodebuild -version
+      - run: cd ios/HausKlar && xcodebuild -project HausKlar.xcodeproj -scheme HausKlar -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build

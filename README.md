@@ -56,6 +56,8 @@ npm run dev
 
 iOS simulator:
 
+Requires Xcode 26 or newer and [XcodeGen](https://github.com/yonaskolb/XcodeGen).
+
 ```sh
 cd ios/HausKlar
 cp Config/Local.xcconfig.example Config/Local.xcconfig
