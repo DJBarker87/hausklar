@@ -1,0 +1,279 @@
+/* Caregiver handover: adult setup and the deliberately calmer public session. */
+.caregiver-setup-page,
+.caregiver-session-sections,
+.caregiver-editor,
+.caregiver-booking-list,
+.caregiver-house-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.caregiver-readiness {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px 20px;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--warning) 42%, var(--border));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--warning) 7%, var(--surface));
+}
+
+.caregiver-readiness.is-ready {
+  border-color: color-mix(in srgb, var(--success) 42%, var(--border));
+  background: color-mix(in srgb, var(--success) 7%, var(--surface));
+}
+
+.caregiver-readiness > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.caregiver-readiness h2,
+.caregiver-readiness p,
+.caregiver-readiness .page-eyebrow {
+  margin: 0;
+}
+
+.caregiver-readiness > .button {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.caregiver-missing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.caregiver-missing span {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.caregiver-booking-section {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.caregiver-booking-list article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-top: 1px solid var(--border);
+}
+
+.caregiver-booking-list article:first-child { border-top: 0; }
+.caregiver-booking-list article > div { display: grid; gap: 3px; }
+.caregiver-booking-list article span,
+.caregiver-booking-list article small { color: var(--muted); }
+
+.caregiver-past-access {
+  padding: 4px 0;
+  color: var(--muted);
+}
+
+.caregiver-past-access summary { cursor: pointer; font-weight: 700; }
+.caregiver-past-access > div { display: grid; gap: 8px; padding-top: 12px; }
+.caregiver-past-access p { display: flex; justify-content: space-between; gap: 12px; margin: 0; }
+
+.caregiver-child-editor {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.caregiver-child-editor legend {
+  padding: 0 7px;
+  font-weight: 800;
+}
+
+.caregiver-contact-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.caregiver-child-choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.caregiver-child-choice label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-weight: 700;
+}
+
+.caregiver-share-link,
+.caregiver-house-grid p,
+.caregiver-live-row,
+.caregiver-address,
+.caregiver-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.caregiver-share-link {
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--surface-muted);
+}
+
+.caregiver-share-link > span,
+.caregiver-house-grid p > span,
+.caregiver-address > span,
+.caregiver-contact > span {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.caregiver-share-link small { color: var(--muted); }
+
+.caregiver-session-shell {
+  width: min(760px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 36px) 48px;
+  background: var(--background);
+}
+
+.caregiver-session-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.caregiver-session-header p,
+.caregiver-session-header h1,
+.caregiver-session-header span { margin: 0; }
+.caregiver-session-header p,
+.caregiver-session-header span { color: var(--muted); }
+
+.caregiver-session-sections { margin-top: 18px; }
+
+.caregiver-session-sections > section {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.caregiver-session-sections h2 { margin: 0 0 12px; }
+
+.caregiver-child-card {
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+
+.caregiver-child-card:first-of-type { border-top: 0; }
+.caregiver-child-card > div { display: flex; align-items: center; gap: 8px; }
+.caregiver-child-card h3 { margin: 0; }
+.caregiver-child-card dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 13px 0 0; }
+.caregiver-child-card dl div { padding: 10px; border-radius: 10px; background: var(--surface-muted); }
+.caregiver-child-card dt { color: var(--muted); font-size: 0.76rem; font-weight: 800; text-transform: uppercase; }
+.caregiver-child-card dd { margin: 3px 0 0; white-space: pre-wrap; }
+
+.caregiver-live-row { margin: 0; }
+
+.caregiver-medicine-record {
+  display: grid;
+  gap: 3px;
+  padding: 11px 0;
+  border-top: 1px solid var(--border);
+}
+
+.caregiver-medicine-record p { margin: 0; }
+.caregiver-medicine-record span { color: var(--muted); font-size: 0.86rem; }
+
+.caregiver-safety-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 11px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--warning) 8%, var(--surface-muted));
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.caregiver-house-grid p { margin: 0; }
+
+.caregiver-next-event {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.caregiver-next-event:first-of-type { border-top: 0; }
+.caregiver-next-event time { color: var(--accent); font-weight: 800; }
+.caregiver-next-event div { display: grid; gap: 2px; }
+.caregiver-next-event span { color: var(--muted); font-size: 0.84rem; }
+
+.caregiver-address { padding: 12px; border-radius: 10px; background: var(--surface-muted); white-space: pre-wrap; }
+
+.caregiver-contact {
+  align-items: center;
+  min-height: 54px;
+  padding: 9px 0;
+  border-top: 1px solid var(--border);
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.caregiver-contact:first-of-type { border-top: 0; }
+.caregiver-contact > span { flex: 1; }
+.caregiver-contact small { color: var(--muted); }
+
+.caregiver-session-error {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 480px;
+  margin: 20vh auto 0;
+  text-align: center;
+}
+
+.caregiver-session-error h1,
+.caregiver-session-error p { margin: 0; }
+
+@media (max-width: 620px) {
+  .caregiver-readiness { grid-template-columns: 1fr; }
+  .caregiver-readiness > .button { grid-column: 1; grid-row: auto; justify-self: stretch; }
+  .caregiver-contact-editor { grid-template-columns: 1fr; padding: 14px; border: 1px solid var(--border); border-radius: 12px; }
+  .caregiver-contact-editor .icon-button { justify-self: end; }
+  .caregiver-booking-list article { align-items: stretch; flex-direction: column; }
+  .caregiver-past-access p { flex-direction: column; gap: 2px; }
+  .caregiver-session-shell { padding-top: 12px; }
+  .caregiver-child-card dl { grid-template-columns: 1fr; }
+}

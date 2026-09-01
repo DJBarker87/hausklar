@@ -1,0 +1,7 @@
+Your Amazon.co.uk refund has been processed
+Order #: REDACTED-AMZ-ORDER-001
+Order date: 30 July 2026
+1 of: Children's school shoes
+Refund amount: £25.00
+ASIN: REDACTED-ASIN-001
+Total refund: £25.00

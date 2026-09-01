@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(HAUSKLAR_BUNDLE_ID).capture</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>hausklar</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.8.3</string>
+	<key>CFBundleVersion</key>
+	<string>19</string>
+	<key>APIBaseURL</key>
+	<string>$(HAUSKLAR_API_BASE_URL)</string>
+	<key>HausKlarAppGroup</key>
+	<string>$(HAUSKLAR_APP_GROUP)</string>
+	<key>FinanceWebBaseURL</key>
+	<string>$(FINANCE_WEB_BASE_URL)</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchScreenBackground</string>
+	</dict>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>NSFaceIDUsageDescription</key>
+	<string>HausKlar uses Face ID to securely authenticate and protect your family data.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>HausKlar uses the camera only when you choose to scan a family document or food barcode, photograph artwork, or take a private Fitness progress or food-label photo.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>HausKlar reads the Health data you select—workouts, weight, sleep, resting heart rate and heart-rate variability—to keep your private Fitness history up to date.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>HausKlar requests read-only access to keep your private Fitness history up to date; it does not add or change data in Apple Health.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>HausKlar uses the microphone only while you dictate a planner capture or a message to Bismarck.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>HausKlar converts speech into editable text so you can review it before adding planner items or sending a message to Bismarck.</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+</dict>
+</plist>

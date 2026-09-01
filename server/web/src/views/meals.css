@@ -1,0 +1,111 @@
+.shopping-toolbar-actions,
+.tesco-history-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tesco-history-dialog {
+  display: grid;
+  gap: 16px;
+}
+
+.tesco-history-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tesco-history-summary > div {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.tesco-history-summary strong {
+  font-size: 1.05rem;
+}
+
+.tesco-history-summary span,
+.tesco-usuals small,
+.tesco-history-preview span,
+.tesco-history-preview p {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.tesco-usuals {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.tesco-usuals > header,
+.tesco-usuals > div {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tesco-usuals > div:last-child {
+  border-bottom: 0;
+}
+
+.tesco-usuals > div > span {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.tesco-usuals > div > span:last-child {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.tesco-usuals > div > span:first-child strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tesco-usuals .is-rise { color: var(--danger); }
+.tesco-usuals .is-fall { color: var(--success); }
+
+.tesco-history-empty {
+  display: flex;
+  min-height: 90px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.tesco-history-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.tesco-history-preview > div {
+  display: grid;
+  gap: 2px;
+}
+
+.tesco-history-preview p {
+  width: 100%;
+  margin: 0;
+}

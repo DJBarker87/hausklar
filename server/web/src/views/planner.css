@@ -1,0 +1,1070 @@
+/* Planner depth stays quiet until it is useful, while the day itself reads as
+   one continuous, chronological plan. */
+.planner-mobile-select {
+  display: none;
+}
+
+.planner-people-filter button.is-active {
+  color: var(--primary-hover);
+}
+
+.planner-day-plan {
+  gap: 2px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--border);
+}
+
+.planner-day-plan .planner-plan-item {
+  margin: 0;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  background: var(--surface);
+}
+
+.planner-day-plan .planner-plan-item.is-routine,
+.planner-day-plan .planner-plan-item.is-task,
+.planner-day-plan .planner-plan-item.is-prep {
+  color: var(--foreground);
+}
+
+.planner-day-plan .planner-plan-item.is-prep {
+  border-left-color: var(--accent);
+}
+
+.planner-day-plan .planner-plan-item.is-task {
+  border-left-color: var(--warning);
+}
+
+.planner-plan-item .task-check {
+  justify-self: end;
+}
+
+.coordination-card {
+  display: grid;
+  width: 100%;
+  gap: 4px;
+  padding: 9px 12px 11px;
+  border: 1px solid var(--border);
+  border-left: 3px solid color-mix(in srgb, var(--member-0) 62%, var(--member-1));
+  border-radius: 11px;
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.coordination-card:hover {
+  background: var(--surface-hover);
+}
+
+.coordination-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--primary) 26%, transparent);
+  outline-offset: 2px;
+}
+
+.planner-day-plan .coordination-card {
+  margin: 0;
+  border-width: 0 0 0 3px;
+  border-radius: 0;
+}
+
+.coordination-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: .78rem;
+}
+
+.coordination-card-heading svg {
+  color: var(--muted);
+}
+
+.coordination-axis {
+  position: relative;
+  display: block;
+  height: 13px;
+  margin-left: 72px;
+  color: var(--muted);
+  font-size: .58rem;
+}
+
+.coordination-axis i {
+  position: absolute;
+  transform: translateX(-50%);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.coordination-lanes {
+  display: grid;
+  gap: 5px;
+}
+
+.coordination-lane {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 62px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.coordination-lane > strong {
+  overflow: hidden;
+  color: var(--member-color);
+  font-size: .7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coordination-track {
+  position: relative;
+  display: block;
+  height: 31px;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, transparent 14px, color-mix(in srgb, var(--member-color) 72%, transparent) 14px 16px, transparent 16px),
+    repeating-linear-gradient(90deg, transparent 0 calc(25% - 1px), color-mix(in srgb, var(--border) 55%, transparent) calc(25% - 1px) 25%);
+}
+
+.coordination-window {
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  display: flex;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 5px;
+  border: 1px solid color-mix(in srgb, var(--member-color) 45%, var(--border));
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--member-soft) 82%, var(--surface));
+  color: var(--member-color);
+}
+
+.coordination-window.is-conflict {
+  border-style: dashed;
+  border-color: var(--danger);
+}
+
+.coordination-window b {
+  overflow: hidden;
+  font-size: .62rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coordination-marker {
+  position: absolute;
+  z-index: 2;
+  top: 1px;
+  bottom: 1px;
+  width: 2px;
+  transform: translateX(-1px);
+  background: var(--member-color);
+}
+
+.coordination-marker > i {
+  position: absolute;
+  top: 11px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--member-color);
+  box-shadow: 0 0 0 1px var(--member-color);
+}
+
+.coordination-marker > b {
+  position: absolute;
+  top: -1px;
+  left: 5px;
+  color: var(--foreground);
+  font-size: .58rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.coordination-marker.is-pickup > b {
+  top: 20px;
+}
+
+.coordination-card.is-compact {
+  gap: 2px;
+  padding: 6px;
+  border-left-width: 2px;
+}
+
+.coordination-card.is-compact .coordination-card-heading {
+  font-size: .62rem;
+}
+
+.coordination-card.is-compact .coordination-axis {
+  height: 9px;
+  margin-left: 42px;
+  font-size: .46rem;
+}
+
+.coordination-card.is-compact .coordination-lane {
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 4px;
+}
+
+.coordination-card.is-compact .coordination-lane > strong {
+  font-size: .55rem;
+}
+
+.coordination-card.is-compact .coordination-track {
+  height: 23px;
+  background: linear-gradient(180deg, transparent 10px, color-mix(in srgb, var(--member-color) 72%, transparent) 10px 12px, transparent 12px);
+}
+
+.coordination-card.is-compact .coordination-window {
+  top: 3px;
+  height: 18px;
+  padding-inline: 2px;
+}
+
+.coordination-card.is-compact .coordination-window b {
+  font-size: .48rem;
+}
+
+.coordination-card.is-compact .coordination-marker > b,
+.coordination-card.is-compact .coordination-marker > i {
+  display: none;
+}
+
+.month-plan-context.is-coordination {
+  color: var(--member-0);
+  font-weight: 700;
+}
+
+.coordination-detail {
+  display: grid;
+  gap: 2px;
+}
+
+.coordination-detail > button {
+  display: grid;
+  min-height: 52px;
+  grid-template-columns: 12px minmax(0, 1fr) auto 18px;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.coordination-detail > button span:nth-child(2) {
+  display: grid;
+  gap: 2px;
+}
+
+.coordination-detail > button small,
+.coordination-detail > button time,
+.coordination-detail > button svg {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.coordination-detail-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--member-color);
+}
+
+.coordination-detail-window {
+  width: 12px;
+  height: 22px;
+  border: 1px solid color-mix(in srgb, var(--member-0) 35%, var(--border));
+  border-radius: 4px;
+  background: var(--member-0-soft);
+}
+
+.is-school-club {
+  border-left-color: var(--primary) !important;
+}
+
+.is-school-club.is-cancelled {
+  border-left-style: dashed !important;
+  opacity: .62;
+}
+
+.is-school-club.is-cancelled span,
+.is-school-club.is-cancelled strong {
+  text-decoration: line-through;
+}
+
+.is-school-milestone {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--member-2) 42%, var(--border)) !important;
+  background: linear-gradient(125deg, color-mix(in srgb, var(--member-3-soft) 42%, var(--surface)), color-mix(in srgb, var(--member-2-soft) 34%, var(--surface))) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--member-3) 22%, transparent);
+}
+
+.planner-day-event.is-school-milestone {
+  min-height: 84px;
+}
+
+.planner-day-event.is-school-milestone strong {
+  font-size: 1.02rem;
+}
+
+.milestone-sprinkles {
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  right: 7px;
+  width: 112px;
+  height: 48px;
+  opacity: .7;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 22%, var(--member-2) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 29% 63%, var(--accent) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 48% 16%, var(--member-3) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 68% 70%, var(--member-4) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 91% 28%, var(--member-1) 0 2px, transparent 2.5px),
+    linear-gradient(55deg, transparent 47%, var(--warning) 48% 52%, transparent 53%) 19px 28px / 10px 10px no-repeat,
+    linear-gradient(-35deg, transparent 47%, var(--accent) 48% 52%, transparent 53%) 77px 7px / 11px 11px no-repeat;
+}
+
+.event-detail-hero.is-school-milestone {
+  min-height: 154px;
+  align-content: center;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.event-detail-hero.is-school-milestone .milestone-sprinkles {
+  width: 180px;
+  height: 72px;
+}
+
+.handoff-schedule-editor,
+.handoff-day-editor {
+  display: grid;
+  gap: 16px;
+}
+
+.handoff-day-editor {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.handoff-day-editor label,
+.handoff-fixed-person {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.handoff-fixed-person strong {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface-muted);
+  color: var(--foreground);
+  font-size: 0.92rem;
+}
+
+.handoff-day-editor select,
+.handoff-day-editor input,
+.handoff-week-row select,
+.handoff-week-row input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--foreground);
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.handoff-week-grid {
+  display: grid;
+  gap: 5px;
+}
+
+.handoff-person-section {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface-muted);
+}
+
+.handoff-person-section > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.handoff-person-section > header > div:first-child {
+  display: grid;
+  gap: 1px;
+}
+
+.handoff-person-section > header small {
+  color: var(--muted);
+  font-size: .7rem;
+}
+
+.handoff-person-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.handoff-person-tabs button {
+  min-height: 40px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.handoff-person-tabs button.is-active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.handoff-week-heading,
+.handoff-week-row {
+  display: grid;
+  grid-template-columns: 52px repeat(2, minmax(110px, 1fr));
+  align-items: center;
+  gap: 7px;
+}
+
+.handoff-week-heading.is-simple,
+.handoff-week-row.is-simple {
+  grid-template-columns: 52px minmax(110px, 1fr);
+}
+
+.handoff-week-heading {
+  padding: 0 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.handoff-week-row {
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.handoff-week-row > strong {
+  font-size: 0.82rem;
+}
+
+.handoff-week-row label {
+  min-width: 0;
+}
+
+.handoff-week-row :disabled {
+  opacity: 0.55;
+}
+
+.handoff-day-options {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.handoff-day-editor .dialog-actions {
+  grid-column: 1 / -1;
+}
+
+.club-manager,
+.toast-manager,
+.club-list,
+.toast-status-list {
+  display: grid;
+  gap: 12px;
+}
+
+.club-list article,
+.toast-status-list article {
+  display: grid;
+  min-height: 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.club-list article {
+  grid-template-columns: 34px minmax(0, 1fr) auto auto;
+}
+
+.toast-status-list article {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.club-list article > div,
+.toast-status-list article > span {
+  display: grid;
+  gap: 2px;
+}
+
+.club-list small,
+.toast-status-list small,
+.toast-status-list b {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.club-list-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 9px;
+  background: currentColor;
+}
+
+.club-list-icon svg {
+  color: var(--surface);
+}
+
+.club-empty,
+.toast-import-change,
+.managed-club-actions p,
+.managed-toast-detail p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.club-editor {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.club-editor label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.club-editor .club-name,
+.club-editor .dialog-actions {
+  grid-column: 1 / -1;
+}
+
+.club-editor input,
+.club-editor select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--foreground);
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.toast-import-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.toast-import-summary > div {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.toast-import-summary span {
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+.toast-import-summary strong {
+  font-size: .9rem;
+}
+
+.managed-club-actions,
+.managed-toast-detail {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.month-plan-context {
+  width: 100%;
+  min-width: 0;
+  padding: 3px 5px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.month-plan-context span {
+  margin-right: 4px;
+  color: var(--subtle);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.event-commitment-detail {
+  gap: 20px;
+}
+
+.event-detail-hero,
+.event-detail-section {
+  display: grid;
+  gap: 12px;
+}
+
+.event-detail-location {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.event-detail-people {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.event-detail-people > div {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-left: 2px solid var(--border-strong);
+}
+
+.event-detail-people span,
+.event-related-task small,
+.event-prep-pack span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.event-detail-notes {
+  margin: 0;
+  color: var(--muted);
+  white-space: pre-wrap;
+}
+
+.event-detail-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.event-detail-section h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.event-prep-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.event-detail-clashes button,
+.event-related-task,
+.event-prep-pack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.event-detail-clashes button {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  text-align: left;
+}
+
+.event-detail-clashes button span {
+  min-width: 90px;
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.event-related-task > span,
+.event-prep-pack {
+  display: grid;
+  gap: 2px;
+}
+
+.event-prep-pack {
+  align-items: stretch;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.event-prep-pack > div { display: grid; gap: 2px; }
+.event-prep-pack ul { display: grid; gap: 4px; margin: 0; padding-left: 20px; color: var(--muted); font-size: 0.86rem; }
+.event-prep-pack .button { justify-self: start; }
+
+.event-document-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.event-document-grid .linked-document-card {
+  margin: 0;
+}
+
+.event-document-grid .linked-document-card span {
+  display: grid;
+  gap: 1px;
+}
+
+.event-detail-more {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.event-detail-more summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.event-detail-more p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.event-attachments-field {
+  display: grid;
+  gap: 12px;
+}
+
+.event-attachment-list {
+  display: grid;
+  gap: 6px;
+}
+
+.event-attachment-editor-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(120px, 0.45fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.event-attachment-editor-row > span {
+  display: grid;
+  min-width: 0;
+}
+
+.event-attachment-editor-row > img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+.event-attachment-editor-row small {
+  overflow: hidden;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-attachment-add-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 0.4fr) auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.event-editor-primary-group {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.event-editor-primary-group > legend {
+  padding: 0 8px 0 0;
+  color: var(--foreground);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.event-editor-more {
+  border-top: 1px solid var(--border);
+  padding-top: 4px;
+}
+
+.event-editor-more > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--foreground);
+  font-weight: 800;
+}
+
+.event-editor-more > summary small {
+  color: var(--muted);
+  font-weight: 500;
+  text-align: right;
+}
+
+.event-editor-more[open] > summary {
+  margin-bottom: 12px;
+}
+
+.agenda-event.has-source-color {
+  border-left: 4px solid var(--member-color);
+  background: var(--member-soft);
+}
+
+.event-item.is-away-rugby,
+.month-event.is-away-rugby,
+.planner-day-event.is-away-rugby,
+.agenda-event.is-away-rugby {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--member-color) 38%, transparent);
+}
+
+.rugby-venue-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid color-mix(in srgb, #2563eb 38%, var(--border));
+  border-radius: 12px;
+  background: color-mix(in srgb, #2563eb 8%, var(--surface));
+  padding: 14px;
+}
+
+.rugby-venue-control.is-away {
+  border-color: color-mix(in srgb, #dc2626 55%, var(--border));
+  background: color-mix(in srgb, #dc2626 11%, var(--surface));
+}
+
+.rugby-venue-control > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.rugby-venue-control h3,
+.rugby-venue-control p {
+  margin: 0;
+}
+
+.rugby-venue-control p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.rugby-venue-label {
+  flex: 0 0 auto;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #fff;
+  padding: 7px 9px;
+  font-size: 13px;
+  font-weight: 820;
+  letter-spacing: .08em;
+}
+
+.rugby-venue-control.is-away .rugby-venue-label {
+  background: #dc2626;
+}
+
+@media (max-width: 620px) {
+  .planner-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(118px, 0.72fr);
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .planner-date-controls {
+    justify-content: space-between;
+  }
+
+  .planner-toolbar .segmented,
+  .planner-people-filter {
+    display: none;
+  }
+
+  .planner-filter-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .planner-mobile-select {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .planner-mobile-select select {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 7px 30px 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--foreground);
+    font: inherit;
+  }
+
+  .event-detail-location {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .event-detail-people,
+  .event-document-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rugby-venue-control {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .rugby-venue-control > .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .event-attachment-editor-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .event-attachment-editor-row select {
+    grid-column: 2 / -1;
+  }
+
+  .event-attachment-add-row {
+    grid-template-columns: 1fr;
+  }
+
+  .event-editor-more > summary {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .event-editor-more > summary small {
+    text-align: left;
+  }
+
+  .club-editor,
+  .toast-import-summary,
+  .managed-club-actions,
+  .managed-toast-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .managed-club-actions .dialog-actions {
+    justify-content: stretch;
+  }
+
+  .handoff-day-editor {
+    grid-template-columns: 1fr;
+  }
+
+  .handoff-person-section > header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .handoff-person-tabs {
+    justify-content: flex-start;
+  }
+
+  .handoff-week-heading {
+    display: none;
+  }
+
+  .handoff-week-row {
+    grid-template-columns: 42px minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .handoff-week-row.is-simple {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .handoff-day-options,
+  .handoff-day-editor .dialog-actions {
+    grid-column: 1;
+  }
+}

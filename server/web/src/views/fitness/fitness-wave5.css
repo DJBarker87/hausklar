@@ -1,0 +1,200 @@
+.fitness-wave5__coach-card {
+  gap: 12px;
+}
+
+.fitness-wave5__starter-prompts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.fitness-wave5__starter-prompts button {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 680;
+  text-align: left;
+}
+
+.fitness-wave5__starter-prompts button:hover,
+.fitness-wave5__starter-prompts button:focus-visible {
+  border-color: var(--fitness-accent);
+  background: var(--fitness-accent-soft);
+  color: var(--fitness-accent);
+}
+
+.fitness-wave5__composer {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.fitness-wave5__composer textarea {
+  min-height: 88px;
+}
+
+.fitness-wave5__disclaimer,
+.fitness-wave5__proposal-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitness-wave5__messages-end {
+  height: 1px;
+  pointer-events: none;
+}
+
+.fitness-wave5__proposal-preview {
+  display: grid;
+  gap: 10px;
+}
+
+.fitness-wave5__proposal-preview ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fitness-wave5__proposal-preview li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.45;
+}
+
+.fitness-wave5__proposal-preview li:first-child {
+  padding-top: 0;
+}
+
+.fitness-wave5__proposal-preview > span {
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--fitness-accent-soft);
+  color: var(--fitness-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitness-wave5__personalise-form,
+.fitness-wave5__toggle-list {
+  display: grid;
+  gap: 10px;
+}
+
+.fitness-wave5__toggle-list {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.fitness-wave5__toggle-list > label {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 11px;
+  min-height: 58px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+  cursor: pointer;
+}
+
+.fitness-wave5__toggle-list input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--fitness-accent);
+}
+
+.fitness-wave5__toggle-list span {
+  display: grid;
+  gap: 2px;
+}
+
+.fitness-wave5__toggle-list small,
+.fitness-wave5__reminders li span,
+.fitness-wave5__reminders li small {
+  color: var(--muted);
+}
+
+.fitness-wave5__reminders > ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fitness-wave5__reminders > ul > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.fitness-wave5__reminders > ul > li:last-child {
+  border-bottom: 0;
+}
+
+.fitness-wave5__reminders li > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.fitness-wave5__reminders [tabindex="-1"]:focus-visible,
+#fitness-coach-reminders:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--fitness-accent) 42%, transparent);
+  outline-offset: 4px;
+}
+
+.fitness-module__coach-personalise .fitness-module__maintenance-body {
+  gap: 14px;
+}
+
+@media (max-width: 720px) {
+  .fitness-wave5__starter-prompts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .fitness-wave5__messages-end {
+    height: 124px;
+  }
+}
+
+@media (max-width: 440px) {
+  .fitness-wave5__coach-card {
+    padding: 14px;
+  }
+
+  .fitness-wave5__starter-prompts button {
+    min-height: 46px;
+    padding: 8px;
+  }
+
+  .fitness-wave5__reminders > ul > li {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fitness-wave5__starter-prompts button {
+    transition: none;
+  }
+}

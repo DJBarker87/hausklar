@@ -1,0 +1,984 @@
+.today-money-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.today-event-row.is-school-milestone,
+.tomorrow-card li.is-school-milestone {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--member-2) 38%, var(--border));
+  border-radius: 12px;
+  background: linear-gradient(125deg, color-mix(in srgb, var(--member-3-soft) 44%, var(--surface)), color-mix(in srgb, var(--member-2-soft) 36%, var(--surface)));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--member-3) 18%, transparent);
+}
+
+.today-event-row.is-school-milestone {
+  min-height: 84px;
+  margin: 7px;
+  width: calc(100% - 14px);
+  padding: 13px;
+}
+
+.today-event-row.is-school-milestone strong {
+  font-size: 1rem;
+}
+
+.tomorrow-card li.is-school-milestone {
+  min-height: 58px;
+  align-items: center;
+  padding: 9px 11px;
+}
+
+.today-milestone-sprinkles {
+  position: absolute;
+  z-index: -1;
+  top: 4px;
+  right: 6px;
+  width: 122px;
+  height: 48px;
+  opacity: .72;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 22%, var(--member-2) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 29% 63%, var(--accent) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 48% 16%, var(--member-3) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 68% 70%, var(--member-4) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 91% 28%, var(--member-1) 0 2px, transparent 2.5px),
+    linear-gradient(55deg, transparent 47%, var(--warning) 48% 52%, transparent 53%) 19px 28px / 10px 10px no-repeat,
+    linear-gradient(-35deg, transparent 47%, var(--accent) 48% 52%, transparent 53%) 83px 7px / 11px 11px no-repeat;
+}
+
+.today-money-card > .form-error {
+  grid-column: 1 / -1;
+}
+
+.today-money-heading {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.today-money-icon {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.today-money-heading > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.today-money-heading > div > span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.today-money-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.today-money-heading p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.today-money-action {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.today-fitness-nutrition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px 18px;
+  align-items: center;
+}
+
+.today-fitness-nutrition__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.today-fitness-nutrition__heading > div {
+  display: grid;
+  gap: 3px;
+}
+
+.today-fitness-nutrition__heading span:not(.today-money-icon) {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.today-fitness-nutrition__heading h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.today-fitness-nutrition__goals {
+  margin-left: auto;
+}
+
+.today-fitness-nutrition__metrics {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.today-fitness-nutrition__metrics > div,
+.today-fitness-nutrition__metrics span {
+  display: grid;
+  gap: 4px;
+}
+
+.today-fitness-nutrition__metrics strong {
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.today-fitness-nutrition__metrics small {
+  color: var(--muted);
+}
+
+.today-fitness-nutrition__metrics progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--muted) 18%, transparent);
+}
+
+.today-fitness-nutrition__metrics progress::-webkit-progress-bar {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--muted) 18%, transparent);
+}
+
+.today-fitness-nutrition__metrics progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--nutrition-calories-start),
+    var(--nutrition-calories-end)
+  );
+}
+
+.today-fitness-nutrition__metrics progress.is-protein::-webkit-progress-value {
+  background: linear-gradient(
+    90deg,
+    var(--nutrition-protein-start),
+    var(--nutrition-protein-end)
+  );
+}
+
+.today-fitness-nutrition__metrics progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--nutrition-calories-start),
+    var(--nutrition-calories-end)
+  );
+}
+
+.today-fitness-nutrition__metrics progress.is-protein::-moz-progress-bar {
+  background: linear-gradient(
+    90deg,
+    var(--nutrition-protein-start),
+    var(--nutrition-protein-end)
+  );
+}
+
+.today-nutrition-goals {
+  display: grid;
+  gap: 16px;
+}
+
+.today-nutrition-goals > label,
+.today-nutrition-goals > label > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.today-nutrition-goals > label {
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.today-nutrition-goals input {
+  width: 8rem;
+  text-align: right;
+}
+
+@media (max-width: 520px) {
+  .today-fitness-nutrition {
+    grid-template-columns: 1fr;
+  }
+
+  .today-fitness-nutrition > .button {
+    width: 100%;
+  }
+}
+
+.today-money-notice {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--success-soft);
+  color: var(--success);
+  font-size: 0.88rem;
+}
+
+.today-facility-fact {
+  display: grid;
+  width: 100%;
+  min-height: 72px;
+  grid-template-columns: 40px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary-soft) 56%, var(--surface));
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: left;
+}
+
+.today-facility-fact:hover {
+  border-color: var(--primary);
+}
+
+.today-facility-fact:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.today-facility-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--primary);
+}
+
+.today-facility-fact > span:nth-child(2) {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.today-facility-fact small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.today-facility-fact strong {
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.today-facility-fact > span > span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.facility-detail-days {
+  display: grid;
+  gap: 14px;
+}
+
+.dialog-actions.facility-detail-actions {
+  position: sticky;
+  z-index: 2;
+  top: -1px;
+  bottom: auto;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0 0 12px;
+  background: var(--surface-raised);
+}
+
+.facility-detail-actions .button {
+  flex: 1 1 160px;
+  min-height: 44px;
+}
+
+.facility-timetable-heading {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  font-weight: 750;
+}
+
+.facility-timetable-error {
+  margin: 0;
+}
+
+.facility-detail-day {
+  display: grid;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+}
+
+.facility-detail-day > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.facility-detail-day > div:first-child span {
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.facility-detail-day dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.facility-detail-day dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.facility-detail-day dt { color: var(--muted); }
+.facility-detail-day dd { margin: 0; font-weight: 700; text-align: right; }
+.facility-detail-day dd.facility-bookable-windows {
+  display: grid;
+  gap: 8px;
+  min-width: min(100%, 180px);
+}
+
+.facility-bookable-windows > span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.facility-bookable-windows .button {
+  min-width: 76px;
+  min-height: 40px;
+}
+.facility-detail-day p,
+.facility-update-note { margin: 0; color: var(--muted); }
+.facility-update-note { font-size: 0.85rem; }
+
+.today-quick-card {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.today-plans-card {
+  display: grid;
+  width: 100%;
+  min-height: 76px;
+  grid-template-columns: 42px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: left;
+}
+
+.today-plans-card:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-muted);
+}
+
+.today-plans-card__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.today-plans-card > span:nth-child(2) {
+  min-width: 0;
+}
+
+.today-plans-card small,
+.today-plans-card strong,
+.today-plans-card > span:nth-child(2) > span {
+  display: block;
+}
+
+.today-plans-card small {
+  color: var(--warning);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.today-plans-card strong {
+  margin-top: 2px;
+  font-size: 17px;
+}
+
+.today-plans-card > span:nth-child(2) > span {
+  overflow: hidden;
+  margin-top: 2px;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.today-plans-card > span:nth-child(2) > span b {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
+.today-plans-card > svg {
+  color: var(--subtle);
+}
+
+.today-quick-card--loading {
+  min-height: 124px;
+}
+
+.today-quick-card__heading {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.today-quick-card__heading > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.today-quick-card__heading > div > span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.today-quick-card__heading h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.today-quick-card__heading p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.today-quick-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.today-quick-card__actions .button {
+  min-height: 44px;
+}
+
+.today-quick-inline-state,
+.today-quick-success,
+.today-strength-unavailable,
+.today-quick-dialog-state {
+  display: grid;
+  gap: 10px;
+}
+
+.today-quick-inline-state.is-error,
+.today-strength-unavailable {
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  padding: 12px;
+  color: var(--muted);
+}
+
+.today-quick-context,
+.today-quick-offline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.today-quick-offline {
+  color: var(--warning);
+}
+
+.today-quick-card .form-success {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+}
+
+.today-quick-form,
+.today-exercise-form {
+  display: grid;
+  gap: 14px;
+}
+
+.today-food-search-results,
+.today-meal-drafts {
+  display: grid;
+  gap: 8px;
+}
+
+.today-food-search-results > button:not(.button) {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.today-food-search-results > button span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.today-selected-food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.today-food-amount {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 0.65fr) auto;
+  align-items: end;
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.today-food-amount .today-selected-food,
+.today-food-amount .today-quick-context {
+  grid-column: 1 / -1;
+}
+
+.today-meal-drafts h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.today-meal-draft {
+  display: grid;
+  grid-template-columns: minmax(130px, 1.3fr) minmax(90px, 0.6fr) minmax(110px, 0.7fr) auto;
+  align-items: end;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.today-meal-draft > strong {
+  align-self: center;
+}
+
+.today-quick-dialog-state p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.today-quick-dialog-state.is-error {
+  color: var(--danger);
+}
+
+.today-exercise-form {
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.7fr) auto;
+  align-items: end;
+}
+
+.today-exercise-kind {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.today-exercise-kind legend,
+.today-exercise-start label {
+  margin-bottom: 6px;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.today-exercise-kind > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.today-exercise-kind button,
+.today-strength-windows button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.today-exercise-kind button.is-active,
+.today-strength-windows button.is-selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.today-exercise-kind button:focus-visible,
+.today-strength-windows button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.today-exercise-start > span {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding-left: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.today-exercise-start input {
+  min-width: 0;
+  min-height: 42px;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  font: inherit;
+}
+
+.today-exercise-start > span:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.today-exercise-submit {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.today-strength-availability,
+.today-exercise-form > .form-error {
+  grid-column: 1 / -1;
+}
+
+.today-strength-availability {
+  display: grid;
+  gap: 9px;
+}
+
+.today-strength-availability__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.today-strength-availability__heading a,
+.today-strength-unavailable a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.today-strength-availability > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.today-strength-windows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.today-strength-windows button {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 12px;
+}
+
+.today-strength-windows small,
+.today-strength-unavailable small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+.today-quick-success {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  border-radius: var(--radius-md);
+  background: var(--success-soft);
+  padding: 12px;
+  color: var(--success);
+}
+
+.today-quick-success span {
+  display: grid;
+  gap: 2px;
+}
+
+.today-quick-success small {
+  color: currentColor;
+  opacity: 0.85;
+}
+
+.today-vi-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary-soft) 56%, var(--surface));
+}
+
+.today-vi-card__heading {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.today-vi-card__heading > div {
+  display: grid;
+  gap: 2px;
+}
+
+.today-vi-card__heading small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.today-vi-card__heading h2 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.today-vi-card__heading > div > span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.today-vi-card > .form-success,
+.today-vi-card > .form-error {
+  margin: 0;
+}
+
+.today-vi-stale {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--warning) 36%, var(--border));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--warning-soft) 68%, var(--surface));
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.today-vi-stale--error {
+  border-color: color-mix(in srgb, var(--danger) 34%, var(--border));
+  background: color-mix(in srgb, var(--danger-soft) 60%, var(--surface));
+}
+
+.today-vi-stale .button {
+  flex: 0 0 auto;
+}
+
+.today-vi-classes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.today-vi-classes li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.today-vi-classes li > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.today-vi-classes li > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.today-vi-classes time {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.today-vi-no-link {
+  max-width: 120px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.today-vi-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.today-vi-empty p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 620px) {
+  .today-food-amount,
+  .today-meal-draft {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .today-food-amount .today-selected-food,
+  .today-food-amount .today-quick-context,
+  .today-food-amount > .button,
+  .today-meal-draft > strong {
+    grid-column: 1 / -1;
+  }
+
+  .today-exercise-form {
+    grid-template-columns: 1fr;
+  }
+
+  .today-strength-availability,
+  .today-exercise-form > .form-error {
+    grid-column: auto;
+  }
+
+  .today-exercise-submit,
+  .today-quick-card__actions .button {
+    width: 100%;
+  }
+
+  .today-vi-stale {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .today-vi-stale .button {
+    width: 100%;
+  }
+
+  .today-quick-success,
+  .today-vi-classes li {
+    grid-template-columns: 1fr;
+  }
+
+  .today-quick-success > svg {
+    display: none;
+  }
+
+  .today-vi-classes li > div:last-child .button {
+    flex: 1 1 130px;
+  }
+
+  .today-vi-no-link {
+    max-width: none;
+    text-align: left;
+  }
+}

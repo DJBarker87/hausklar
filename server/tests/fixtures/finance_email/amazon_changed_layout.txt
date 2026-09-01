@@ -1,0 +1,4 @@
+Your Amazon order is confirmed
+Order #: REDACTED-AMZ-CHANGED-001
+Order date: 31 July 2026
+This deliberately redacted example has no complete item rows or total.

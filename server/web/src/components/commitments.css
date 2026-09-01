@@ -1,0 +1,766 @@
+.commitments-hub {
+  min-height: min(74dvh, 720px);
+  padding: 4px 22px 24px;
+}
+
+.commitments-list,
+.commitments-create,
+.commitment-review,
+.commitment-source-form,
+.commitment-search-form {
+  display: grid;
+  gap: 18px;
+}
+
+.commitments-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--success), transparent 60%);
+  border-radius: var(--radius-md);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.commitments-notice svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.commitments-back,
+.commitment-decline-link {
+  display: inline-flex;
+  min-height: 44px;
+  width: max-content;
+  align-items: center;
+  gap: 6px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.commitments-back:hover {
+  color: var(--foreground);
+}
+
+.commitments-section-heading {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.commitments-section-heading.is-compact {
+  grid-template-columns: 42px minmax(0, 1fr);
+}
+
+.commitments-section-heading > span:first-child {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.commitments-section-heading h2,
+.commitments-section-heading h3 {
+  margin: 0;
+}
+
+.commitments-section-heading p {
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.commitment-kind-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.commitment-kind-grid > button,
+.commitments-list__rows > button {
+  display: grid;
+  width: 100%;
+  min-height: 76px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: left;
+}
+
+.commitment-kind-grid > button {
+  grid-template-columns: 28px minmax(0, 1fr) 18px;
+}
+
+.commitment-kind-grid > button > svg:first-child {
+  color: var(--primary);
+}
+
+.commitment-kind-grid > button > svg:last-child,
+.commitments-list__rows > button > svg {
+  color: var(--subtle);
+}
+
+.commitment-kind-grid > button:hover,
+.commitments-list__rows > button:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-muted);
+}
+
+.commitment-kind-grid strong,
+.commitment-kind-grid small,
+.commitments-list__rows strong,
+.commitments-list__rows small {
+  display: block;
+}
+
+.commitment-kind-grid small,
+.commitments-list__rows small {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.commitments-list__rows {
+  display: grid;
+  gap: 8px;
+}
+
+.commitments-list__rows > button {
+  grid-template-columns: 38px minmax(0, 1fr) auto 18px;
+}
+
+.commitments-list__rows em {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.commitment-kind-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 760;
+}
+
+.commitment-kind-mark.is-invitation { background: var(--member-2-soft); color: var(--member-2); }
+.commitment-kind-mark.is-outing { background: var(--member-1-soft); color: var(--member-1); }
+.commitment-kind-mark.is-childcare { background: var(--member-3-soft); color: var(--member-3); }
+.commitment-kind-mark.is-appointment { background: var(--danger-soft); color: var(--danger); }
+.commitment-kind-mark.is-travel { background: var(--member-4-soft); color: var(--member-4); }
+
+.commitment-source-form,
+.commitment-search-form {
+  max-width: 920px;
+}
+
+.commitment-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.commitment-form-grid .is-wide {
+  grid-column: 1 / -1;
+}
+
+.commitment-form-grid label > svg {
+  vertical-align: -2px;
+}
+
+.commitment-form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commitment-hermes-choice,
+.commitment-check {
+  display: flex;
+  min-height: 58px;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.commitment-hermes-choice > input,
+.commitment-check > input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.commitment-hermes-choice > svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.commitment-hermes-choice strong,
+.commitment-hermes-choice small,
+.commitment-check strong,
+.commitment-check small {
+  display: block;
+}
+
+.commitment-hermes-choice small,
+.commitment-check small {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.commitments-offline {
+  padding: 11px 13px;
+  border: 1px solid color-mix(in srgb, var(--warning), transparent 65%);
+  border-radius: var(--radius-md);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.commitment-people,
+.commitment-candidate,
+.commitment-visibility-choice {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.commitment-people legend,
+.commitment-candidate legend,
+.commitment-visibility-choice legend {
+  padding: 0 5px;
+  font-weight: 680;
+}
+
+.commitment-visibility-choice > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.commitment-visibility-choice label {
+  display: flex;
+  min-height: 64px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.commitment-visibility-choice label:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.commitment-visibility-choice input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.commitment-visibility-choice strong,
+.commitment-visibility-choice small {
+  display: block;
+}
+
+.commitment-visibility-choice small {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.commitment-people > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.commitment-people label {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.commitment-people label:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.commitment-people input {
+  width: 17px;
+  height: 17px;
+}
+
+.commitment-search-results,
+.commitment-gap-results {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+}
+
+.commitment-search-results > div,
+.commitment-gap-results > div {
+  display: grid;
+  gap: 8px;
+}
+
+.commitment-search-results article,
+.commitment-gap-results article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.commitment-search-results article > svg {
+  color: var(--primary);
+}
+
+.commitment-search-results strong,
+.commitment-search-results small,
+.commitment-gap-results strong,
+.commitment-gap-results small {
+  display: block;
+}
+
+.commitment-search-results small,
+.commitment-gap-results small {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.commitment-review {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.commitment-review__hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.commitment-review__hero > div {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 0 12px;
+}
+
+.commitment-review__hero .commitment-kind-mark {
+  grid-row: 1 / 4;
+}
+
+.commitment-review__hero p,
+.commitment-review__hero small {
+  color: var(--muted);
+}
+
+.commitment-status {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.commitment-status.is-ready { background: var(--success-soft); color: var(--success); }
+.commitment-status.is-action_required { background: var(--warning-soft); color: var(--warning); }
+
+.commitment-review-issues {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--warning), transparent 58%);
+  border-radius: var(--radius-md);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.commitment-change-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--primary), transparent 62%);
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  color: var(--foreground);
+}
+
+.commitment-change-summary > svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.commitment-change-summary ul,
+.commitment-change-summary p {
+  margin: 5px 0 0;
+}
+
+.commitment-change-summary ul {
+  padding-left: 20px;
+}
+
+.commitment-change-summary small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.commitment-review-issues ul {
+  margin: 5px 0 0;
+  padding-left: 20px;
+}
+
+.commitment-review-issues small {
+  display: block;
+  margin-top: 6px;
+}
+
+.commitment-review-section {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.commitment-review-section > header {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.commitment-review-section > header > svg {
+  align-self: start;
+  margin-top: 2px;
+  color: var(--primary);
+}
+
+.commitment-review-section > header p {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.commitment-sources {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.commitment-item-more {
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.commitment-sources summary,
+.commitment-item-more summary {
+  width: max-content;
+  max-width: 100%;
+  min-height: 40px;
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.commitment-sources summary:focus-visible,
+.commitment-item-more summary:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.commitment-item-more > div {
+  margin-top: 10px;
+}
+
+.commitment-field-error {
+  color: var(--danger);
+}
+
+.commitment-field-error button {
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.commitment-sources > div,
+.commitment-edit-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.commitment-sources article,
+.commitment-edit-list > article {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.commitment-edit-list__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.commitment-edit-list__heading .icon-button {
+  min-width: 40px;
+  min-height: 40px;
+  color: var(--danger);
+}
+
+.commitment-people.is-compact {
+  padding: 10px 0 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+}
+
+.commitment-check.is-wide {
+  grid-column: 1 / -1;
+}
+
+.commitment-inline-empty {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.commitment-external-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.commitment-external-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.commitment-external-actions p {
+  flex: 1;
+  color: var(--muted);
+}
+
+.commitment-review-actions {
+  position: sticky;
+  z-index: 5;
+  bottom: -24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 0 24px;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-raised), transparent 3%);
+  backdrop-filter: blur(14px);
+}
+
+.commitment-review-actions > div {
+  flex: 1;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.commitment-review-actions > div span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.commitment-decline-link {
+  color: var(--danger);
+}
+
+.commitment-confirm-help {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+.commitment-decline {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--danger), transparent 60%);
+  border-radius: var(--radius-md);
+  background: var(--danger-soft);
+}
+
+.commitment-decline > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .commitments-hub {
+    min-height: 0;
+    padding: 2px 14px max(18px, env(safe-area-inset-bottom));
+  }
+
+  .commitment-kind-grid,
+  .commitment-form-grid,
+  .commitment-visibility-choice > div {
+    grid-template-columns: 1fr;
+  }
+
+  .commitment-form-grid .is-wide,
+  .commitment-check.is-wide {
+    grid-column: auto;
+  }
+
+  .commitments-section-heading {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .commitments-section-heading > .button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .commitments-list__rows > button {
+    grid-template-columns: 38px minmax(0, 1fr) 18px;
+  }
+
+  .commitments-list__rows em {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .commitments-list__rows > button > svg {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .commitment-search-results article,
+  .commitment-gap-results article {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .commitment-search-results article .button,
+  .commitment-gap-results article .button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .commitment-review__hero {
+    flex-direction: column;
+  }
+
+  .commitment-review-section {
+    padding: 14px;
+  }
+
+  .commitment-review-section > header {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .commitment-review-section > header > .button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .commitment-external-actions,
+  .commitment-review-actions,
+  .commitment-decline > div:last-child {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .commitment-external-actions .button,
+  .commitment-review-actions .button,
+  .commitment-review-actions .commitment-decline-link,
+  .commitment-decline .button {
+    width: 100%;
+  }
+
+  .commitment-review-actions {
+    bottom: calc(-1 * max(18px, env(safe-area-inset-bottom)));
+    padding-bottom: max(18px, env(safe-area-inset-bottom));
+  }
+
+  .commitment-review-actions > div {
+    text-align: center;
+  }
+
+  .commitment-confirm-help {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .commitments-hub *,
+  .commitments-hub *::before,
+  .commitments-hub *::after {
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "HausKlar",
+  "short_name": "HausKlar",
+  "description": "Your shared family planner",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#f7f8fa",
+  "share_target": {
+    "action": "/api/share-target",
+    "method": "POST",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": { "title": "title", "text": "text", "url": "url" }
+  },
+  "icons": [
+    {
+      "src": "/icons/hausklar-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/hausklar-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+services:
+  hausklar:
+    build:
+      context: ./server
+    env_file:
+      - path: .demo.env
+        required: false
+    environment:
+      APP_ENV: demo
+      DATABASE_PATH: /app/data/hausklar.db
+      APP_BASE_URL: http://localhost:8001
+      WEB_APP_URL: http://localhost:8001
+      ALLOW_PUBLIC_REGISTRATION: "false"
+      SCHEDULER_ENABLED: "false"
+      FINANCE_AI_PROVIDER: off
+      STRAVA_INTEGRATION_ENABLED: "false"
+      WITHINGS_INTEGRATION_ENABLED: "false"
+      LEGACY_HEALTH_INTEGRATIONS_ENABLED: "false"
+    command: ["sh", "-c", "umask 077; python -m app.db.seed && exec uvicorn app.main:app --host 0.0.0.0 --port 8001 --no-access-log"]
+    ports:
+      - "127.0.0.1:8001:8001"
+    volumes:
+      - hausklar-demo-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  hausklar-demo-data:

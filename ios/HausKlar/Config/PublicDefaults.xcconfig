@@ -1,0 +1,11 @@
+// Public simulator/development defaults. Local.xcconfig is ignored by Git and
+// may override these values for a developer-owned device or server.
+HAUSKLAR_BUNDLE_ID = org.example.hausklar
+HAUSKLAR_APP_GROUP = group.org.example.hausklar
+HAUSKLAR_API_BASE_URL = http:/$()/localhost:8001/api
+FINANCE_WEB_BASE_URL =
+
+// Simulator builds must never require an Apple developer account.
+CODE_SIGNING_ALLOWED[sdk=iphonesimulator*] = NO
+
+#include? "Local.xcconfig"

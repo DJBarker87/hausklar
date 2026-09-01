@@ -1,0 +1,168 @@
+name: HausKlar
+options:
+  bundleIdPrefix: org.example
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+schemes:
+  HausKlar:
+    build:
+      targets:
+        HausKlar: all
+    test:
+      targets:
+        - HausKlarTests
+
+configFiles:
+  Debug: Config/PublicDefaults.xcconfig
+  Release: Config/PublicDefaults.xcconfig
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+  configs:
+    Debug:
+      DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+    Release:
+      DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+
+packages:
+  GRDB:
+    url: https://github.com/groue/GRDB.swift.git
+    from: 6.29.3
+
+targets:
+  HausKlar:
+    type: application
+    platform: iOS
+    sources:
+      - path: HausKlar
+        excludes:
+          - "**/.DS_Store"
+    resources:
+      - path: HausKlar/PrivacyInfo.xcprivacy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "$(HAUSKLAR_BUNDLE_ID)"
+        INFOPLIST_FILE: HausKlar/Info.plist
+        CODE_SIGN_ENTITLEMENTS: HausKlar/HausKlar.entitlements
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        GENERATE_INFOPLIST_FILE: false
+      configs:
+        Debug:
+          APS_ENVIRONMENT: development
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          APS_ENVIRONMENT: production
+          SWIFT_OPTIMIZATION_LEVEL: -O
+          FINANCE_WEB_BASE_URL: ""
+    entitlements:
+      path: HausKlar/HausKlar.entitlements
+      properties:
+        aps-environment: $(APS_ENVIRONMENT)
+        com.apple.security.application-groups:
+          - $(HAUSKLAR_APP_GROUP)
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)$(HAUSKLAR_BUNDLE_ID)
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.background-delivery: true
+    dependencies:
+      - package: GRDB
+      - target: HausKlarShare
+        embed: true
+      - target: HausKlarWidgets
+        embed: true
+
+  HausKlarShare:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: HausKlarShare
+        excludes:
+          - "**/.DS_Store"
+      - path: HausKlar/Services/SharedCaptureStore.swift
+      - path: HausKlar/Services/FitnessPendingFITInbox.swift
+    resources:
+      - path: HausKlarShare/PrivacyInfo.xcprivacy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "$(HAUSKLAR_BUNDLE_ID).share"
+        INFOPLIST_FILE: HausKlarShare/Info.plist
+        CODE_SIGN_ENTITLEMENTS: HausKlarShare/HausKlarShare.entitlements
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: false
+        APPLICATION_EXTENSION_API_ONLY: true
+        SKIP_INSTALL: true
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG FIT_SHARE_EXTENSION"
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: -O
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: FIT_SHARE_EXTENSION
+    entitlements:
+      path: HausKlarShare/HausKlarShare.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(HAUSKLAR_APP_GROUP)
+
+  HausKlarWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: HausKlarWidgets
+        excludes:
+          - "**/.DS_Store"
+      - path: HausKlar/Services/KeychainManager.swift
+      - path: HausKlar/Services/ISODateParser.swift
+      - path: HausKlar/Services/GlanceStore.swift
+      - path: HausKlar/Services/AuthenticatedRedirectPolicy.swift
+      - path: HausKlar/Services/BoundedHTTPPayload.swift
+      - path: HausKlar/DTOs/GlanceDTOs.swift
+      - path: HausKlar/Models/MedicineDoseActivityAttributes.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "$(HAUSKLAR_BUNDLE_ID).widgets"
+        INFOPLIST_FILE: HausKlarWidgets/Info.plist
+        CODE_SIGN_ENTITLEMENTS: HausKlarWidgets/HausKlarWidgets.entitlements
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: false
+        APPLICATION_EXTENSION_API_ONLY: true
+        SKIP_INSTALL: true
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: -O
+    entitlements:
+      path: HausKlarWidgets/HausKlarWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(HAUSKLAR_APP_GROUP)
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)$(HAUSKLAR_BUNDLE_ID)
+
+  HausKlarTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: HausKlarTests
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "$(HAUSKLAR_BUNDLE_ID).tests"
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: true
+    dependencies:
+      - target: HausKlar
+      - package: GRDB

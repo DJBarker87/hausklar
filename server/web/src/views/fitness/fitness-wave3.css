@@ -1,0 +1,1067 @@
+.fitness-setup,
+.fitness-log {
+  display: grid;
+  gap: 16px;
+}
+
+.fitness-setup {
+  width: min(880px, 100%);
+  margin-inline: auto;
+}
+
+.fitness-setup__loading {
+  min-height: 88px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.fitness-setup__header,
+.fitness-setup__footer,
+.fitness-log__actions,
+.fitness-log__planned-actions,
+.fitness-log__connection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.fitness-setup__header,
+.fitness-setup__footer {
+  justify-content: space-between;
+}
+
+.fitness-setup__header > div,
+.fitness-setup__review > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.fitness-setup__header span,
+.fitness-setup__review > div:first-child > span {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fitness-setup__header h2,
+.fitness-setup__header p,
+.fitness-setup__review h3,
+.fitness-setup__review p,
+.fitness-setup__context p {
+  margin: 0;
+}
+
+.fitness-setup__header p,
+.fitness-setup__review p,
+.fitness-setup__context p {
+  color: var(--muted);
+}
+
+.fitness-setup__steps {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.fitness-setup__steps li {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.fitness-setup__steps li > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 740;
+}
+
+.fitness-setup__steps li.is-current,
+.fitness-setup__steps li.is-complete {
+  color: var(--foreground);
+}
+
+.fitness-setup__steps li.is-current > span,
+.fitness-setup__steps li.is-complete > span {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.fitness-setup__card {
+  min-height: 410px;
+  align-content: start;
+  gap: 24px;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.fitness-setup__fieldset,
+.fitness-setup__stack,
+.fitness-setup__review,
+.fitness-log__capture-compose,
+.fitness-log__capture-review,
+.fitness-log__photo-compose,
+.fitness-log__photo-review {
+  display: grid;
+  gap: 16px;
+}
+
+.fitness-setup__fieldset {
+  padding: 0;
+  border: 0;
+}
+
+.fitness-setup__fieldset legend {
+  margin-bottom: 6px;
+  color: var(--foreground);
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 760;
+}
+
+.fitness-setup__fieldset > p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+.fitness-setup__choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fitness-setup__choice {
+  min-height: 48px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.fitness-setup__choice:has(input:checked) {
+  border-color: color-mix(in srgb, var(--primary) 65%, var(--border));
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+}
+
+.fitness-setup__choice input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.fitness-setup__choice span {
+  flex: 1;
+}
+
+.fitness-setup__availability {
+  display: grid;
+  gap: 8px;
+}
+
+.fitness-setup__availability > div {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: clip;
+}
+
+.fitness-setup__availability > div > .fitness-setup__choice {
+  border: 0;
+  border-radius: 0;
+}
+
+.fitness-setup__availability-fields,
+.fitness-setup__fields,
+.fitness-log__quick-tools,
+.fitness-log__simple-form,
+.fitness-log__household-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fitness-setup__availability-fields {
+  padding: 0 12px 12px 40px;
+}
+
+.fitness-setup__availability-fields label,
+.fitness-setup__fields label,
+.fitness-setup__radio-list label,
+.fitness-log label,
+.fitness-log__draft-rows fieldset {
+  min-width: 0;
+}
+
+.fitness-setup__availability-fields label,
+.fitness-setup__fields label,
+.fitness-log label {
+  display: grid;
+  gap: 6px;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.fitness-setup input,
+.fitness-setup select,
+.fitness-log input,
+.fitness-log select,
+.fitness-log textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.fitness-setup .fitness-setup__choice input[type="checkbox"],
+.fitness-setup .fitness-setup__choice input[type="radio"] {
+  flex: 0 0 18px;
+  width: 18px;
+  min-height: 18px;
+  height: 18px;
+  padding: 0;
+}
+
+.fitness-log textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.fitness-setup label small,
+.fitness-log label small,
+.fitness-log__draft-rows fieldset > small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.fitness-setup__radio-list {
+  display: grid;
+  gap: 8px;
+}
+
+.fitness-setup__radio-list label {
+  min-height: 56px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.fitness-setup__radio-list label:has(input:checked) {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+}
+
+.fitness-setup__radio-list input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--primary);
+}
+
+.fitness-setup__radio-list span {
+  display: grid;
+  gap: 2px;
+}
+
+.fitness-setup__radio-list small {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.fitness-setup__context,
+.fitness-setup__confirm-note,
+.fitness-setup__resume,
+.fitness-log__undo,
+.fitness-log__inline-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.fitness-setup__context > div,
+.fitness-setup__resume > div {
+  display: grid;
+  gap: 2px;
+}
+
+.fitness-setup__week {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.fitness-setup__week li {
+  min-height: 64px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.fitness-setup__week li > div:last-child,
+.fitness-setup__week-date {
+  display: grid;
+  gap: 3px;
+}
+
+.fitness-setup__week li span,
+.fitness-setup__week li small {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+}
+
+.fitness-setup__week-date {
+  justify-items: center;
+  color: var(--muted);
+}
+
+.fitness-setup__week-date span {
+  color: var(--foreground) !important;
+  font-size: 18px;
+  font-weight: 760;
+}
+
+.fitness-setup__footer {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.fitness-setup__footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.fitness-setup__resume {
+  justify-content: space-between;
+}
+
+.fitness-setup__resume .fitness-module__form-status {
+  width: 100%;
+}
+
+.fitness-log__manage {
+  z-index: 12;
+}
+
+.fitness-log__modes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.fitness-log__modes button {
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 680;
+}
+
+.fitness-log__modes button.is-active {
+  background: var(--surface);
+  color: var(--foreground);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+}
+
+.fitness-log__first-view {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.fitness-log__food {
+  display: grid;
+  gap: 12px;
+}
+
+.fitness-log__date-navigation {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.fitness-log__date-navigation > .button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.fitness-log__date-navigation > div {
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  text-align: center;
+}
+
+.fitness-log__date-navigation > div > button {
+  min-height: 36px;
+  padding: 2px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.fitness-log__day-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.fitness-log__day-summary > div {
+  min-width: 0;
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 10px;
+}
+
+.fitness-log__day-summary > div + div {
+  border-left: 1px solid var(--border);
+}
+
+.fitness-log__day-summary span,
+.fitness-log__day-summary small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitness-log__day-summary strong {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.fitness-log__quick-card,
+.fitness-log__diary-card {
+  min-height: 0;
+  align-content: start;
+}
+
+.fitness-log__quick-card > *,
+.fitness-log__detail-form,
+.fitness-log__food-search,
+.fitness-log__food-results,
+.fitness-log__food-result,
+.fitness-log__food-result-main {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.fitness-log__food-search > label,
+.fitness-log__food-search input,
+.fitness-log__database-actions,
+.fitness-log__database-actions .button {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.fitness-log__quick-tools {
+  grid-template-columns: minmax(0, 1fr) 140px;
+}
+
+.fitness-log__quick-tools label > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fitness-log__quick-picks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.fitness-log__quick-pick {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.fitness-log__quick-pick > button:first-child {
+  min-height: 58px;
+  padding: 10px 12px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: left;
+}
+
+.fitness-log__quick-pick > button:first-child span,
+.fitness-log__diary-list li span,
+.fitness-log__planned-meals li small,
+.fitness-log__household-links li span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitness-log__quick-pick > .button {
+  min-width: 58px;
+  min-height: 44px;
+  align-self: center;
+}
+
+.fitness-log__diary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.fitness-log__diary-list,
+.fitness-log__planned-meals ul,
+.fitness-log__household-links,
+.fitness-log__photo-review ul {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.fitness-log__diary-list li,
+.fitness-log__planned-meals li,
+.fitness-log__household-links li,
+.fitness-log__photo-review li {
+  min-height: 54px;
+  padding-block: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.fitness-log__diary-list li:last-child,
+.fitness-log__planned-meals li:last-child,
+.fitness-log__household-links li:last-child,
+.fitness-log__photo-review li:last-child {
+  border-bottom: 0;
+}
+
+.fitness-log__diary-list li > div:first-child,
+.fitness-log__planned-meals li > div:first-child,
+.fitness-log__household-links li > div:first-child {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.fitness-log__planned-meals li > p,
+.fitness-log__household-links li > p {
+  width: 100%;
+}
+
+.fitness-log__planned-meals form {
+  width: min(100%, 520px);
+  display: grid;
+  grid-template-columns: 100px 110px auto auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.fitness-log__planned-actions > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fitness-log__empty {
+  grid-column: 1 / -1;
+  min-height: 100px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.fitness-log__empty strong {
+  color: var(--foreground);
+}
+
+.fitness-log__detail-form,
+.fitness-log__household-manage {
+  display: grid;
+  gap: 14px;
+}
+
+.fitness-log__food-search,
+.fitness-log__food-results {
+  display: grid;
+  gap: 8px;
+}
+
+.fitness-log__food-result {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.fitness-log__food-result-main,
+.fitness-log__lookup-result {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.fitness-log__food-result-main span,
+.fitness-log__lookup-result span,
+.fitness-log__selected-food span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.fitness-log__food-result-main strong,
+.fitness-log__database-actions .button {
+  overflow-wrap: anywhere;
+}
+
+.fitness-log__food-result-add {
+  width: 44px;
+  min-width: 44px;
+  padding-inline: 0;
+}
+
+.fitness-log__database-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fitness-log__database-actions .button:first-child {
+  flex: 1 1 220px;
+}
+
+.fitness-log__meal-sections {
+  display: grid;
+  gap: 10px;
+}
+
+.fitness-log__meal-section {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.fitness-log__meal-heading {
+  min-height: 58px;
+  padding: 9px 10px 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface-muted);
+}
+
+.fitness-log__meal-heading > div {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.fitness-log__meal-heading h4 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.95rem;
+}
+
+.fitness-log__meal-heading span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitness-log__meal-section .fitness-log__diary-list {
+  padding-inline: 12px;
+}
+
+.fitness-log__secondary-tools {
+  padding: 10px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.fitness-log__secondary-tools > span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.fitness-log__selected-food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.fitness-log__selected-food > div {
+  display: grid;
+  gap: 2px;
+}
+
+.fitness-log__portion-fields {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(140px, 1fr);
+  gap: 10px;
+}
+
+.fitness-log__lookup-warning {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.fitness-log__draft-rows {
+  display: grid;
+  gap: 10px;
+}
+
+.fitness-log__draft-rows fieldset {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 110px 110px auto;
+  align-items: end;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.fitness-log__draft-rows legend {
+  padding-inline: 4px;
+  color: var(--foreground);
+  font-weight: 720;
+}
+
+.fitness-log__draft-rows fieldset > small {
+  grid-column: 1 / -1;
+}
+
+.fitness-log__capture-review > label,
+.fitness-log__detail-form > label {
+  width: min(220px, 100%);
+}
+
+.fitness-log__photo-compose figure {
+  width: min(360px, 100%);
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.fitness-log__photo-compose img,
+.fitness-log__photo-review > img {
+  display: block;
+  width: min(360px, 100%);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.fitness-log__photo-compose figcaption {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitness-log__undo {
+  position: sticky;
+  z-index: 16;
+  bottom: 12px;
+  justify-content: space-between;
+  border-color: color-mix(in srgb, var(--primary) 42%, var(--border));
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 14%);
+}
+
+.fitness-log__undo > span {
+  display: grid;
+  gap: 2px;
+}
+
+.fitness-log__inline-error {
+  justify-content: space-between;
+  color: var(--danger, var(--foreground));
+}
+
+.fitness-log__simple-form .is-wide,
+.fitness-log__simple-form .fitness-log__actions,
+.fitness-log__simple-form .fitness-module__form-status,
+.fitness-log__household-form .fitness-module__form-status,
+.fitness-log__household-form > p {
+  grid-column: 1 / -1;
+}
+
+.fitness-log__household-form {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+.fitness-log__household-links li > div:last-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fitness-log button:focus-visible,
+.fitness-log input:focus-visible,
+.fitness-log select:focus-visible,
+.fitness-log textarea:focus-visible,
+.fitness-setup button:focus-visible,
+.fitness-setup input:focus-visible,
+.fitness-setup select:focus-visible,
+.fitness-setup__choice:has(input:focus-visible),
+.fitness-setup__radio-list label:has(input:focus-visible) {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fitness-log__quick-pick > button:first-child,
+  .fitness-log__modes button,
+  .fitness-setup__choice,
+  .fitness-setup__radio-list label {
+    transition: background-color 100ms ease-out, border-color 100ms ease-out, color 100ms ease-out, transform 100ms ease-out;
+  }
+
+  .fitness-log__quick-pick > button:first-child:active,
+  .fitness-log__modes button:active,
+  .fitness-setup__choice:active {
+    transform: translateY(1px);
+  }
+}
+
+@media (max-width: 820px) {
+  .fitness-log__first-view {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fitness-log__quick-card,
+  .fitness-log__diary-card {
+    min-height: 0;
+  }
+
+  .fitness-log__quick-card,
+  .fitness-log__planned-meals,
+  .fitness-log__diary-card {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .fitness-log__diary-card {
+    order: 2;
+  }
+
+  .fitness-log__undo {
+    bottom: calc(132px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 620px) {
+  .fitness-setup__header {
+    align-items: flex-start;
+  }
+
+  .fitness-setup__header > .button {
+    min-height: 40px;
+  }
+
+  .fitness-setup__steps small {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .fitness-setup__card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .fitness-setup__choice-grid,
+  .fitness-setup__fields,
+  .fitness-setup__availability-fields,
+  .fitness-log__quick-tools,
+  .fitness-log__simple-form,
+  .fitness-log__household-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fitness-setup__availability-fields {
+    padding-left: 12px;
+  }
+
+  .fitness-setup__footer {
+    align-items: stretch;
+  }
+
+  .fitness-setup__footer > div,
+  .fitness-setup__footer .button {
+    flex: 1 1 auto;
+  }
+
+  .fitness-log__modes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .fitness-log__modes button {
+    min-height: 52px;
+    flex-direction: column;
+    gap: 2px;
+    padding-inline: 2px;
+    font-size: 11px;
+  }
+
+  .fitness-log__quick-picks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fitness-log__day-summary {
+    padding: 6px;
+  }
+
+  .fitness-log__day-summary > div {
+    padding-inline: 7px;
+  }
+
+  .fitness-log__meal-heading {
+    align-items: flex-start;
+  }
+
+  .fitness-log__actions > .button {
+    flex: 1 1 145px;
+  }
+
+  .fitness-log__draft-rows fieldset,
+  .fitness-log__planned-meals form,
+  .fitness-log__portion-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fitness-log__lookup-warning {
+    grid-column: auto;
+  }
+
+  .fitness-log__planned-meals li,
+  .fitness-log__household-links li {
+    align-items: stretch;
+  }
+
+  .fitness-log__planned-actions,
+  .fitness-log__planned-actions .button,
+  .fitness-log__household-links li > div:last-of-type,
+  .fitness-log__household-links li > div:last-of-type .button {
+    width: 100%;
+  }
+
+  .fitness-setup__resume,
+  .fitness-log__undo {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

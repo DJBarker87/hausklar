@@ -1,0 +1,314 @@
+.activity-route-map {
+  --fitness-map-dark-background: #171a1f;
+  --fitness-map-dark-water-fill: #17334a;
+  --fitness-map-dark-water-line: #4d83a8;
+  --fitness-map-dark-land-fill: #20352a;
+  --fitness-map-dark-land-line: #5d8064;
+  --fitness-map-dark-building-fill: #30343b;
+  --fitness-map-dark-building-line: #6b7280;
+  --fitness-map-dark-road-fill: #383a3f;
+  --fitness-map-dark-road-line: #c3c4c7;
+  --fitness-map-dark-other-fill: #272c33;
+  --fitness-map-dark-other-line: #68717d;
+  --fitness-map-dark-point: #c7ccd4;
+  --fitness-map-dark-label: #eef0f3;
+}
+
+.activity-route-map .fitness-module__route-map-viewport {
+  isolation: isolate;
+}
+
+.activity-route-map figcaption {
+  flex-wrap: wrap;
+}
+
+.activity-route-map figcaption strong {
+  white-space: nowrap;
+}
+
+.activity-route-map .activity-route-map__surface {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.activity-route-map .activity-route-map__surface:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.activity-route-map__backdrop {
+  fill: var(--surface-muted);
+}
+
+.activity-route-map__grid {
+  opacity: 0.72;
+}
+
+.activity-route-map__grid-minor {
+  fill: none;
+  stroke: color-mix(in srgb, var(--border), transparent 28%);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.activity-route-map__contours {
+  fill: none;
+  stroke: color-mix(in srgb, var(--border-strong), transparent 48%);
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.activity-route-map__route-casing,
+.activity-route-map__route-base,
+.activity-route-map__route-progress,
+.activity-route-map__route-hit {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.activity-route-map__route-casing {
+  stroke: var(--surface);
+  stroke-width: 11;
+}
+
+.activity-route-map__route-base {
+  stroke: color-mix(in srgb, var(--fitness-accent), transparent 52%);
+  stroke-width: 6;
+}
+
+.activity-route-map__route-progress {
+  stroke: var(--fitness-accent);
+  stroke-width: 6;
+}
+
+.activity-route-map__route-hit {
+  stroke: transparent;
+  stroke-width: 30;
+  pointer-events: stroke;
+}
+
+.activity-route-map__marker {
+  pointer-events: none;
+}
+
+.activity-route-map__marker circle {
+  stroke: var(--surface);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.activity-route-map__marker text {
+  fill: var(--primary-foreground);
+  font-size: 10px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.activity-route-map__marker.is-start circle {
+  fill: var(--success);
+}
+
+.activity-route-map__marker.is-finish circle {
+  fill: var(--foreground);
+}
+
+.activity-route-map__marker.is-finish text {
+  fill: var(--surface);
+}
+
+.activity-route-map__marker .activity-route-map__selected-halo {
+  fill: var(--surface);
+  stroke: var(--fitness-accent);
+  stroke-width: 3;
+}
+
+.activity-route-map__marker .activity-route-map__selected-point {
+  fill: var(--fitness-accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.activity-route-map__private-placeholder {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--surface-muted);
+  pointer-events: none;
+}
+
+.activity-route-map__private-placeholder path {
+  fill: none;
+  stroke: var(--fitness-accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 6;
+}
+
+.activity-route-map__private-placeholder circle {
+  stroke: var(--surface);
+  stroke-width: 3;
+}
+
+.activity-route-map__private-placeholder .is-start { fill: var(--success); }
+.activity-route-map__private-placeholder .is-finish { fill: var(--foreground); }
+.activity-route-map__private-placeholder .is-selected { fill: var(--fitness-accent); }
+
+.activity-route-map__mode {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.activity-route-map__retry {
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.activity-route-map__retry:focus-visible,
+.activity-route-map__attribution a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.activity-route-map__loading-status {
+  position: absolute;
+  z-index: 4;
+  bottom: 50px;
+  left: 10px;
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface), transparent 3%);
+  box-shadow: var(--shadow-sm);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.activity-route-map__loading-status > span {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--fitness-accent);
+  border-radius: 50%;
+}
+
+.activity-route-map__attribution {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  padding-inline: 4px;
+  border-top-left-radius: 8px;
+  background: color-mix(in srgb, var(--surface), transparent 4%);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.activity-route-map__attribution a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding-inline: 4px;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .activity-route-map__retry:hover,
+  .activity-route-map__attribution a:hover {
+    color: var(--fitness-accent);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .activity-route-map__loading-status > span {
+    animation: fitness-module-spin 700ms linear infinite;
+  }
+}
+
+@media (max-width: 520px) {
+  .activity-route-map__attribution {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (hover: hover) {
+  .activity-route-map .activity-route-map__surface:hover .activity-route-map__route-base {
+    stroke: color-mix(in srgb, var(--fitness-accent), transparent 42%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .activity-route-map__route-base {
+    transition: stroke 100ms ease-out;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .activity-route-map__grid-minor,
+  .activity-route-map__contours {
+    stroke: var(--border-strong);
+  }
+
+  .activity-route-map__route-casing { stroke-width: 13; }
+  .activity-route-map__route-base,
+  .activity-route-map__route-progress { stroke-width: 8; }
+
+  .activity-route-map__marker circle,
+  .activity-route-map__private-placeholder circle {
+    stroke-width: 4;
+  }
+}
+
+@media (forced-colors: active) {
+  .activity-route-map__backdrop,
+  .activity-route-map__private-placeholder {
+    fill: Canvas;
+    background: Canvas;
+  }
+
+  .activity-route-map__route-base,
+  .activity-route-map__route-progress,
+  .activity-route-map__private-placeholder path {
+    stroke: Highlight;
+  }
+
+  .activity-route-map__route-casing { stroke: Canvas; }
+}

@@ -1,0 +1,16 @@
+__pycache__
+*.pyc
+.env
+hausklar.db
+hausklar.db-*
+data/
+evals/results/
+tests/
+.venv/
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+web/vite.config.js
+web/vite.config.d.ts
+web/test-results/
+web/playwright-report/

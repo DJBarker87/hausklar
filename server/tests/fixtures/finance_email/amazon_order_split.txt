@@ -1,0 +1,20 @@
+Your Amazon.co.uk order confirmation
+See our refund policy for returns and eligibility details.
+Order #: REDACTED-AMZ-ORDER-001
+Order date: 27 July 2026
+Shipment 1 of 2: REDACTED-PARCEL-A
+1 of: Children's school shoes
+Item subtotal: £25.00
+ASIN: REDACTED-ASIN-001
+Sold by: Example footwear seller
+Shipment 2 of 2: REDACTED-PARCEL-B
+2 of: Dog training treats
+Item subtotal: £8.50
+ASIN: REDACTED-ASIN-002
+Sold by: Example pet seller
+Postage & packing: £3.99
+Promotion applied: -£2.00
+VAT included: £5.91
+Order total: £35.49
+Charge: Visa ending in 1111 | £25.00
+Charge: Visa ending in 1111 | £10.49

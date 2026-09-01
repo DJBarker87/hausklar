@@ -1,0 +1,408 @@
+.fitness-module__maintenance {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  overflow: clip;
+}
+
+.fitness-module__section-tools {
+  position: relative;
+  align-self: flex-end;
+  margin-top: -10px;
+}
+
+.fitness-module__section-tools > summary {
+  min-height: 40px;
+  padding: 8px 11px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+}
+
+.fitness-module__section-tools > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fitness-module__section-tools > summary.is-active {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.fitness-module__section-tools-menu {
+  position: absolute;
+  z-index: 8;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 190px;
+  padding: 6px;
+  display: grid;
+  gap: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: 0 14px 35px rgb(0 0 0 / 16%);
+}
+
+.fitness-module__section-tools-menu button {
+  min-height: 42px;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.fitness-module__section-tools-menu button.is-active {
+  background: color-mix(in srgb, var(--accent) 11%, var(--surface));
+}
+
+.fitness-module__maintenance > summary {
+  min-height: 48px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.fitness-module__maintenance > summary::after {
+  content: "+";
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.fitness-module__maintenance[open] > summary::after {
+  content: "−";
+}
+
+.fitness-module__maintenance-body {
+  padding: 0 14px 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.fitness-module__next-action {
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--border));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), var(--surface));
+}
+
+.fitness-module__next-action.is-attention,
+.fitness-module__next-action.is-urgent {
+  border-color: color-mix(in srgb, var(--warning) 48%, var(--border));
+}
+
+.fitness-module__next-action-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.fitness-module__next-action-copy h3,
+.fitness-module__next-action-copy p {
+  margin: 0;
+}
+
+.fitness-module__next-action-evidence {
+  margin-top: 12px;
+}
+
+.fitness-module__weekly-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fitness-module__weekly-summary > div {
+  min-width: 0;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--surface-raised, var(--surface)) 88%, var(--accent) 4%);
+}
+
+.fitness-module__weekly-summary small,
+.fitness-module__weekly-summary strong {
+  display: block;
+}
+
+.fitness-module__weekly-summary strong {
+  margin-top: 4px;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+.fitness-module__running-load {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fitness-module__running-load > div {
+  padding: 11px 12px;
+  display: grid;
+  gap: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.fitness-module__running-load span,
+.fitness-module__running-load small {
+  color: var(--muted);
+}
+
+.fitness-module__quick-log-card {
+  display: grid;
+  gap: 12px;
+}
+
+.fitness-module__quick-log-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(130px, 0.35fr);
+  align-items: end;
+  gap: 10px;
+}
+
+.fitness-module__quick-log-undo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--success) 11%, var(--surface));
+}
+
+.fitness-module__barcode-scanner {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.fitness-module__barcode-scanner-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fitness-module__barcode-scanner-heading strong,
+.fitness-module__barcode-scanner-heading small {
+  display: block;
+}
+
+.fitness-module__barcode-scanner-heading small {
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.fitness-module__barcode-scanner video {
+  width: 100%;
+  max-height: 320px;
+  border-radius: var(--radius-md);
+  background: var(--foreground);
+  object-fit: cover;
+}
+
+.fitness-module__destination:focus,
+[id^="fitness-goal-"]:focus,
+[id^="fitness-nutrition-target-"]:focus,
+[id^="fitness-analysis-chart-"]:focus,
+[id^="fitness-issue-"]:focus,
+[id^="fitness-recovery-"]:focus,
+#fitness-body-issues:focus {
+  outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 3px;
+}
+
+.fitness-module__row-menu {
+  position: relative;
+}
+
+.fitness-module__row-menu > summary {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  list-style: none;
+}
+
+.fitness-module__row-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fitness-module__row-menu-actions {
+  position: absolute;
+  z-index: 4;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 150px;
+  padding: 6px;
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 14%);
+}
+
+.fitness-module__row-menu-actions .button {
+  width: 100%;
+  min-height: 40px;
+  justify-content: flex-start;
+}
+
+.fitness-module__data-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1180px;
+  margin: 8px auto 0;
+  padding: 7px 16px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.fitness-module__data-status.has-problem {
+  color: var(--warning-text, var(--text));
+}
+
+.fitness-module__data-status button {
+  min-height: 44px;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.fitness-module__focus-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.fitness-module__focus-card h3 {
+  margin: 10px 0 4px;
+}
+
+.fitness-module__focus-card strong {
+  display: block;
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
+}
+
+.fitness-module__focus-card p,
+.fitness-module__connections-body p,
+.fitness-module__problem-inbox p {
+  color: var(--text-muted);
+}
+
+.fitness-module__connections-card details > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fitness-module__connections-body,
+.fitness-module__problem-inbox {
+  display: grid;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.fitness-module__coach-personalise > summary,
+.fitness-module__training-manage > summary {
+  font-size: 1rem;
+}
+
+@media (max-width: 720px) {
+  .fitness-module__quick-log-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 440px) {
+  .fitness-module__focus-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .fitness-module__nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .fitness-module__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fitness-module__nav > button,
+  .fitness-module__nav-more {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .fitness-module__nav > button > span,
+  .fitness-module__nav-more > summary > span {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
+  }
+
+  .fitness-module__nav > button {
+    padding-inline: 4px;
+  }
+
+  .fitness-module__weekly-summary {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .fitness-module__weekly-summary::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fitness-module__weekly-summary > div {
+    min-width: 96px;
+    flex: 1 0 96px;
+  }
+
+  .fitness-module__running-load {
+    grid-template-columns: 1fr;
+  }
+
+  .fitness-module__quick-log-undo {
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,588 @@
+.dog-care {
+  display: grid;
+  width: min(100%, 920px);
+  gap: 18px;
+  color: var(--foreground);
+}
+
+.dog-care__hero,
+.dog-care__section,
+.dog-care__today,
+.dog-care__record-book {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.dog-care__hero {
+  display: flex;
+  min-height: 98px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+}
+
+.dog-care__hero-copy {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+}
+
+.dog-care__hero-copy h2 {
+  margin-top: 2px;
+  font-size: 23px;
+}
+
+.dog-care__hero-copy > div > p:last-child {
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.dog-care__avatar {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+}
+
+.dog-care__today,
+.dog-care__section {
+  padding: 20px;
+}
+
+.dog-care__section-heading,
+.dog-care__subsection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.dog-care__section-heading h3,
+.dog-care__subsection-heading h3 {
+  margin-top: 2px;
+  font-size: 17px;
+}
+
+.dog-care__section-heading > span,
+.dog-care__subsection-heading p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dog-care__status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.dog-care__status {
+  display: grid;
+  min-height: 126px;
+  align-content: center;
+  justify-items: start;
+  gap: 5px;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 140ms ease, background-color 140ms ease, transform 140ms ease;
+}
+
+.dog-care__status:not(:disabled):hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.dog-care__status:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+.dog-care__status strong,
+.dog-care__status span {
+  display: block;
+}
+
+.dog-care__status strong {
+  margin-top: 4px;
+  color: var(--foreground);
+  font-size: 15px;
+}
+
+.dog-care__status span {
+  color: inherit;
+  font-size: 12px;
+}
+
+.dog-care__status.is-due,
+.dog-care__status.is-overdue {
+  border-color: color-mix(in srgb, var(--warning) 40%, var(--border));
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.dog-care__status.is-overdue {
+  border-color: color-mix(in srgb, var(--danger) 42%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.dog-care__status.is-done {
+  border-color: color-mix(in srgb, var(--success) 35%, var(--border));
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.dog-care__status.is-active {
+  border-color: color-mix(in srgb, var(--primary) 42%, var(--border));
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.dog-care__record-list,
+.dog-care__compact-list,
+.dog-care__document-list {
+  display: grid;
+  margin-top: 12px;
+}
+
+.dog-care__record {
+  display: grid;
+  min-height: 64px;
+  grid-template-columns: 36px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 7px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dog-care__record:last-child {
+  border-bottom: 0;
+}
+
+.dog-care__record:hover {
+  background: var(--surface-muted);
+}
+
+.dog-care__record > svg,
+.dog-care__compact-list button > svg:last-child {
+  color: var(--subtle);
+}
+
+.dog-care__record-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+}
+
+.dog-care__record-icon.is-active {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.dog-care__record strong,
+.dog-care__record small,
+.dog-care__compact-list strong,
+.dog-care__compact-list small,
+.dog-care__document strong,
+.dog-care__document small {
+  display: block;
+}
+
+.dog-care__record small,
+.dog-care__compact-list small,
+.dog-care__document small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dog-care__record-book {
+  overflow: clip;
+}
+
+.dog-care__record-book > summary {
+  display: grid;
+  min-height: 76px;
+  grid-template-columns: 42px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.dog-care__record-book > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dog-care__record-book > summary strong,
+.dog-care__record-book > summary small {
+  display: block;
+}
+
+.dog-care__record-book > summary small {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.dog-care__record-book > summary > svg {
+  color: var(--subtle);
+  transition: transform 160ms ease;
+}
+
+.dog-care__record-book[open] > summary > svg {
+  transform: rotate(180deg);
+}
+
+.dog-care__record-book-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.dog-care__record-book-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+}
+
+.dog-care__subsection {
+  min-width: 0;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dog-care__subsection:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+
+.dog-care__subsection:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.dog-care__details {
+  display: grid;
+  gap: 0;
+  margin: 12px 0 0;
+}
+
+.dog-care__details > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.7fr) minmax(0, 1.3fr);
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.dog-care__details > div:last-child {
+  border-bottom: 0;
+}
+
+.dog-care__details dt {
+  color: var(--muted);
+}
+
+.dog-care__details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.dog-care__quiet {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dog-care__compact-list button {
+  display: grid;
+  min-height: 50px;
+  grid-template-columns: 26px minmax(0, 1fr) 22px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dog-care__compact-list button:last-child {
+  border-bottom: 0;
+}
+
+.dog-care__compact-list button > svg:first-child {
+  color: var(--accent-hover);
+}
+
+.dog-care__document {
+  display: grid;
+  min-height: 52px;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dog-care__document:last-child {
+  border-bottom: 0;
+}
+
+.dog-care__document > button:first-child {
+  display: grid;
+  min-height: 48px;
+  min-width: 0;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 4px 2px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dog-care__document > button:first-child > svg {
+  color: var(--accent-hover);
+}
+
+.dog-care .icon-button,
+.dog-care__form .button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.dog-care__document strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dog-care__error,
+.dog-care__undo {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+}
+
+.dog-care__error {
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.dog-care__error button {
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.dog-care__undo {
+  position: sticky;
+  z-index: 4;
+  bottom: 14px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow);
+}
+
+.dog-care__form {
+  display: grid;
+  gap: 16px;
+}
+
+.dog-care__form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.dog-care__form-actions .dialog-actions {
+  margin-top: 0;
+}
+
+.dog-care__care-times {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.dog-care__care-times legend {
+  padding: 0 5px;
+  font-weight: 680;
+}
+
+.dog-care__care-times > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) repeat(2, minmax(115px, 0.8fr));
+  align-items: end;
+  gap: 10px;
+}
+
+.dog-care__care-times > div > strong {
+  padding-bottom: 10px;
+}
+
+.dog-care__care-times label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dog-care__care-times input {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.dog-care__loading {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .dog-care {
+    gap: 14px;
+  }
+
+  .dog-care__hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dog-care__hero > .button {
+    width: 100%;
+  }
+
+  .dog-care__status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dog-care__status {
+    min-height: 94px;
+    grid-template-columns: 30px minmax(0, 1fr);
+    align-content: center;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .dog-care__status > svg {
+    grid-row: 1 / 3;
+  }
+
+  .dog-care__status strong {
+    margin-top: 0;
+  }
+
+  .dog-care__section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .dog-care__record-book-body {
+    grid-template-columns: 1fr;
+  }
+
+  .dog-care__subsection,
+  .dog-care__subsection:nth-child(odd),
+  .dog-care__subsection:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dog-care__subsection:last-child {
+    border-bottom: 0;
+  }
+
+  .dog-care__care-times > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dog-care__care-times > div > strong {
+    grid-column: 1 / -1;
+    padding: 0;
+  }
+
+  .dog-care__form-actions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .dog-care__form-actions > .button,
+  .dog-care__form-actions .dialog-actions,
+  .dog-care__form-actions .dialog-actions .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 440px) {
+  .dog-care__hero,
+  .dog-care__today,
+  .dog-care__section,
+  .dog-care__subsection {
+    padding: 16px;
+  }
+
+  .dog-care__subsection-heading {
+    align-items: flex-start;
+  }
+
+  .dog-care__subsection-heading > .button {
+    flex: 0 0 auto;
+  }
+
+  .dog-care__care-times > div {
+    grid-template-columns: 1fr;
+  }
+
+  .dog-care__care-times > div > strong {
+    grid-column: auto;
+  }
+}

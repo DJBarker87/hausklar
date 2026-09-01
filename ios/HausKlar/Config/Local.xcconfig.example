@@ -1,0 +1,10 @@
+// Copy this file to Local.xcconfig for device builds or a non-local server.
+// Local.xcconfig is ignored by Git. Do not commit team IDs or private URLs.
+HAUSKLAR_BUNDLE_ID = org.example.hausklar
+HAUSKLAR_APP_GROUP = group.org.example.hausklar
+HAUSKLAR_API_BASE_URL = https:/$()/hausklar.example.invalid/api
+FINANCE_WEB_BASE_URL = https:/$()/hausklar.example.invalid
+
+// Required only for a signed physical-device build.
+DEVELOPMENT_TEAM =
+CODE_SIGN_STYLE = Automatic

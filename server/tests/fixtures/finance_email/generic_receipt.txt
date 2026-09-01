@@ -1,0 +1,12 @@
+Order confirmation and receipt
+Merchant: Example Stationery
+Receipt no.: REDACTED-RECEIPT-001
+Receipt date: 29 July 2026
+Items
+Family planner notebook | 1 | £6.00
+Blue pens | 2 | £3.00
+Subtotal: £9.00
+Delivery: £1.99
+Discount: -£1.00
+Tax included: £1.67
+Total paid: £9.99

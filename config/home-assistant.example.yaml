@@ -1,0 +1,8 @@
+enabled: false
+base_url: http://home-assistant.example.invalid:8123
+entities:
+  hallway_light: light.example_hallway
+  front_door_contact: binary_sensor.example_front_door
+allowed_actions:
+  - light.turn_on
+  - light.turn_off

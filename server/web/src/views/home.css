@@ -1,0 +1,1049 @@
+.home-command-page {
+  max-width: 980px;
+}
+
+.home-command-page .state-panel,
+.home-command-page > .empty-state {
+  margin-bottom: 24px;
+}
+
+.home-command-skeleton {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.home-sitrep {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 28px;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--success) 30%, var(--border));
+  border-radius: var(--radius-lg);
+  background: var(--success-soft);
+}
+
+.home-sitrep.is-attention {
+  border-color: color-mix(in srgb, var(--warning) 38%, var(--border));
+  background: var(--warning-soft);
+}
+
+.home-sitrep-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--success);
+}
+
+.home-sitrep.is-attention .home-sitrep-icon {
+  color: var(--warning);
+}
+
+.home-sitrep-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.home-sitrep-copy > p:last-child {
+  max-width: 68ch;
+  color: var(--muted);
+}
+
+.home-sitrep > time {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-command-kicker {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-exception-list {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.home-exception-list article {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--warning);
+}
+
+.home-exception-list article.is-urgent {
+  color: var(--danger);
+}
+
+.home-exception-list span,
+.home-exception-list strong,
+.home-exception-list small {
+  display: block;
+}
+
+.home-exception-list strong {
+  color: var(--foreground);
+}
+
+.home-exception-list small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.home-sitrep-clear {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 8px;
+  align-items: center;
+  color: var(--success);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.home-glance {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.home-glance > header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-glance > header svg {
+  color: var(--primary);
+}
+
+.home-glance > header h2 {
+  font-size: 18px;
+}
+
+.home-temperature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.home-temperature-reading {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: background-color 100ms ease-out, border-color 100ms ease-out, transform 100ms ease-out;
+}
+
+.home-temperature-reading:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  background: var(--primary-soft);
+}
+
+.home-temperature-reading:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.home-temperature-reading:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.home-temperature-reading.is-heating {
+  border-color: color-mix(in srgb, var(--warning) 36%, var(--border));
+  background: var(--warning-soft);
+}
+
+.home-temperature-reading.is-heating .home-temperature-values strong {
+  color: var(--warning);
+}
+
+.home-temperature-reading:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.home-temperature-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-temperature-values {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.home-temperature-values strong {
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-temperature-values small {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-temperature-empty {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  padding: 11px 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.home-temperature-detail {
+  display: grid;
+  gap: 18px;
+}
+
+.home-temperature-now {
+  display: grid;
+  min-height: 76px;
+  grid-template-columns: 36px repeat(2, minmax(0, auto));
+  gap: 16px;
+  align-items: center;
+  justify-content: start;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+}
+
+.home-temperature-now.is-heating {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.home-temperature-now > span,
+.home-temperature-now small,
+.home-temperature-now strong {
+  display: block;
+}
+
+.home-temperature-now small {
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.home-temperature-now strong {
+  color: var(--foreground);
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-temperature-history {
+  min-height: 240px;
+}
+
+.home-temperature-history-skeleton {
+  display: grid;
+  min-height: 240px;
+  align-content: end;
+  gap: 36px;
+  padding: 24px 12px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+}
+
+.home-temperature-history-skeleton span {
+  height: 1px;
+  background: var(--border);
+  animation: home-temperature-pulse 1.2s ease-in-out infinite alternate;
+}
+
+.home-temperature-history-state {
+  display: flex;
+  min-height: 240px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.home-temperature-chart {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  color: var(--primary);
+}
+
+.home-temperature-chart.is-heating {
+  color: var(--warning);
+}
+
+.home-temperature-chart figcaption,
+.home-temperature-chart > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.home-temperature-chart figcaption span,
+.home-temperature-chart > div {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-temperature-chart figcaption strong {
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.home-temperature-chart svg {
+  width: 100%;
+  height: 190px;
+  overflow: visible;
+}
+
+.home-temperature-chart-grid {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.home-temperature-chart-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.home-temperature-chart-last {
+  fill: var(--surface);
+  stroke: currentColor;
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.home-room-target {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 16px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+}
+
+.home-room-target > div:first-child span,
+.home-room-target > div:first-child strong {
+  display: block;
+}
+
+.home-room-target > div:first-child span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.home-room-target > div:first-child strong {
+  margin-top: 2px;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-room-target-stepper {
+  display: grid;
+  grid-template-columns: 48px 48px;
+  gap: 8px;
+}
+
+.home-room-target-stepper button {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 100ms ease-out, transform 100ms ease-out;
+}
+
+.home-room-target-stepper button:hover:not(:disabled) {
+  background: var(--primary-soft);
+}
+
+.home-room-target-stepper button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.home-room-target-stepper button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.home-room-target-stepper button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.home-room-target > p {
+  min-height: 18px;
+  grid-column: 1 / -1;
+  color: var(--danger);
+  font-size: 12px;
+}
+
+@keyframes home-temperature-pulse {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+.home-hot-water-boost {
+  display: inline-flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid color-mix(in srgb, var(--warning) 42%, var(--border));
+  border-radius: var(--radius-md);
+  background: var(--warning-soft);
+  color: var(--foreground);
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 100ms ease-out, transform 100ms ease-out;
+}
+
+.home-hot-water-boost:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--warning) 18%, var(--surface));
+}
+
+.home-hot-water-boost:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.home-hot-water-boost:focus-visible,
+.home-full-controls > summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.home-hot-water-boost.is-active {
+  border-color: color-mix(in srgb, var(--success) 38%, var(--border));
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.home-hot-water-boost:disabled {
+  cursor: default;
+  opacity: 0.62;
+}
+
+.home-hot-water-boost.is-active:disabled {
+  opacity: 1;
+}
+
+.home-full-controls {
+  margin-bottom: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.home-full-controls > summary {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+}
+
+.home-full-controls > summary > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.home-full-controls > summary > span svg {
+  color: var(--primary);
+}
+
+.home-full-controls > summary > svg {
+  color: var(--muted);
+  transition: transform 150ms ease-out;
+}
+
+.home-full-controls[open] > summary > svg {
+  transform: rotate(90deg);
+}
+
+.home-full-controls-content {
+  display: grid;
+  padding: 10px 16px 16px;
+}
+
+.home-full-controls-content > .home-command-section:last-of-type,
+.home-full-controls-content > .home-advanced {
+  margin-bottom: 0;
+}
+
+.home-command-section {
+  margin-bottom: 30px;
+}
+
+.home-command-section > header {
+  display: flex;
+  min-height: 44px;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.home-command-section > header > div {
+  display: grid;
+  gap: 3px;
+}
+
+.home-favourite-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.home-control {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.home-control.is-on {
+  border-color: color-mix(in srgb, var(--warning) 35%, var(--border));
+}
+
+.home-control-heading {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.home-control-heading span,
+.home-control-heading strong,
+.home-control-heading small {
+  display: block;
+}
+
+.home-control-heading strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-control-heading small,
+.home-control > p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-control-icon {
+  display: grid !important;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.home-control.is-on .home-control-icon {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.home-control-action {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  cursor: pointer;
+  font-weight: 680;
+  transition: background-color 100ms ease-out, transform 100ms ease-out;
+}
+
+.home-control-action:hover:not(:disabled) {
+  background: var(--primary-soft);
+}
+
+.home-control-action:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.home-control-action:disabled,
+.home-temperature-stepper button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.home-temperature-stepper {
+  display: grid;
+  grid-template-columns: 42px minmax(58px, 1fr) 42px;
+  min-height: 42px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  text-align: center;
+}
+
+.home-temperature-stepper strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.home-temperature-stepper button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.home-temperature-stepper button:hover:not(:disabled) {
+  background: var(--primary-soft);
+}
+
+.home-intention-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.home-intention-card {
+  display: grid;
+  min-height: 72px;
+  grid-template-columns: 28px minmax(0, 1fr) 20px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 100ms ease-out, background-color 100ms ease-out, transform 100ms ease-out;
+}
+
+.home-intention-card:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-muted);
+}
+
+.home-intention-card:active {
+  transform: translateY(1px);
+}
+
+.home-intention-card > svg:first-child {
+  color: var(--primary);
+}
+
+.home-intention-card > svg:last-child {
+  color: var(--muted);
+}
+
+.home-intention-card span,
+.home-intention-card strong,
+.home-intention-card small {
+  display: block;
+}
+
+.home-intention-card small {
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-room-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.home-room-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.home-room-card > summary {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.home-room-card > summary::-webkit-details-marker,
+.home-full-controls > summary::-webkit-details-marker,
+.home-advanced > summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-room-card > summary span,
+.home-room-card > summary strong,
+.home-room-card > summary small {
+  display: block;
+}
+
+.home-room-card > summary small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-room-card > summary > svg,
+.home-advanced > summary > svg {
+  flex: 0 0 auto;
+  color: var(--muted);
+  transition: transform 150ms ease-out;
+}
+
+.home-room-card[open] > summary > svg,
+.home-advanced[open] > summary > svg {
+  transform: rotate(90deg);
+}
+
+.home-room-controls {
+  display: grid;
+  gap: 10px;
+  padding: 0 12px 12px;
+}
+
+.home-room-controls .home-control {
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.home-room-controls .home-control-icon,
+.home-room-controls .home-control-action,
+.home-room-controls .home-temperature-stepper {
+  background: var(--surface);
+}
+
+.home-advanced {
+  margin-bottom: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.home-advanced > summary {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.home-advanced > summary > span {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.home-advanced > summary span span,
+.home-advanced > summary strong,
+.home-advanced > summary small {
+  display: block;
+}
+
+.home-advanced > summary small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-advanced-content {
+  display: grid;
+  gap: 22px;
+  padding: 0 16px 18px;
+}
+
+.home-advanced-content > section {
+  min-width: 0;
+}
+
+.home-advanced-content > section > header {
+  display: grid;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.home-advanced-content > section > header p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.home-advanced-content .home-floor-plan {
+  margin-bottom: 0;
+}
+
+.home-diagnostic-list {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.home-diagnostic-list > div {
+  display: grid;
+  min-height: 54px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-diagnostic-list > div:last-child {
+  border-bottom: 0;
+}
+
+.home-diagnostic-list span,
+.home-diagnostic-list strong,
+.home-diagnostic-list small {
+  display: block;
+}
+
+.home-diagnostic-list small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-advanced-empty {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+}
+
+.home-favourite-picker {
+  display: grid;
+  max-height: min(52vh, 520px);
+  gap: 8px;
+  overflow: auto;
+  padding: 2px;
+}
+
+.home-favourite-picker label,
+.home-broad-form fieldset label,
+.home-mode-form fieldset label {
+  display: grid;
+  min-height: 48px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.home-favourite-picker label:has(input:checked),
+.home-broad-form fieldset label:has(input:checked),
+.home-mode-form fieldset label:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.home-favourite-picker input,
+.home-broad-form input,
+.home-mode-form input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.home-favourite-picker span,
+.home-favourite-picker strong,
+.home-favourite-picker small,
+.home-broad-form label span,
+.home-broad-form label strong,
+.home-broad-form label small,
+.home-mode-form label span,
+.home-mode-form label strong,
+.home-mode-form label small {
+  display: block;
+}
+
+.home-favourite-picker small,
+.home-broad-form label small,
+.home-mode-form label small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-broad-form,
+.home-mode-form {
+  display: grid;
+  gap: 18px;
+}
+
+.home-broad-form fieldset,
+.home-mode-form fieldset {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.home-broad-form legend,
+.home-mode-form legend {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.home-broad-form fieldset label,
+.home-mode-form fieldset label {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.home-broad-count {
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .home-favourite-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-room-grid,
+  .home-intention-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-sitrep {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 16px;
+  }
+
+  .home-sitrep > time {
+    grid-column: 2;
+  }
+
+  .home-favourite-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-command-section > header {
+    align-items: center;
+  }
+
+  .home-control {
+    padding: 14px;
+  }
+
+  .home-temperature-now {
+    grid-template-columns: 30px repeat(2, minmax(0, auto));
+    gap: 10px;
+    padding-inline: 12px;
+  }
+
+  .home-temperature-now strong,
+  .home-room-target > div:first-child strong {
+    font-size: 21px;
+  }
+
+  .home-temperature-history-state {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-control-action,
+  .home-temperature-reading,
+  .home-room-target-stepper button,
+  .home-hot-water-boost,
+  .home-intention-card,
+  .home-room-card > summary > svg,
+  .home-full-controls > summary > svg,
+  .home-advanced > summary > svg {
+    transition: none;
+  }
+
+  .home-temperature-history-skeleton span {
+    animation: none;
+  }
+}
