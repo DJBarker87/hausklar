@@ -36,11 +36,13 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
       - run: ./scripts/public-release-audit.sh
   ios:
-    # HausKlar uses the Swift compiler and iOS SDK shipped with Xcode 26+.
+    # HausKlar requires Xcode 26+. Pin the known-good 26.2 toolchain because
+    # runner defaults can change independently of the source tree.
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
       - run: brew install xcodegen
+      - run: sudo xcode-select -s /Applications/Xcode_26.2.app/Contents/Developer
       - run: cd ios/HausKlar && xcodegen
       - run: xcodebuild -version
       - run: cd ios/HausKlar && xcodebuild -project HausKlar.xcodeproj -scheme HausKlar -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build

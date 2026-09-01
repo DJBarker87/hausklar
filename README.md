@@ -56,7 +56,7 @@ npm run dev
 
 iOS simulator:
 
-Requires Xcode 26 or newer and [XcodeGen](https://github.com/yonaskolb/XcodeGen).
+Requires Xcode 26 or newer and [XcodeGen](https://github.com/yonaskolb/XcodeGen). CI currently validates the project with Xcode 26.2.
 
 ```sh
 cd ios/HausKlar
