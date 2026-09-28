@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.19",
-    "@radix-ui/react-tooltip": "^1.2.12",
+    "@radix-ui/react-tooltip": "^1.2.16",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "lucide-react": "^1.24.0",
